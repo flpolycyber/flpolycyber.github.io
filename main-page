@@ -4,6 +4,17 @@
   <title>Main Page</title>
 </head>
 <body>
-  <h1></h1>
+  	<div>
+  <header>
+    <nav>
+      <ul id="fern">
+        <li><a>Home</a></li>
+        <li><a>About Us</a></li>
+        <li><a>Calendar</a></li>
+        <li><a>History</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
 </body>
 </html>

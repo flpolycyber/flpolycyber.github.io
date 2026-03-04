@@ -1,6 +1,6 @@
 # How to contribute to FPU Cybersecurity Club's Website
 
-If you're comfortable with Git, GitHub, and and IDE like VS Code, please refer to [REFERENCE.md](/REFERENCE.md) for a more concise overview of the Git and GitHub workflow for this project.
+*** If you're comfortable with Git, GitHub, and and IDE like VS Code, please refer to [REFERENCE.md](/REFERENCE.md) for a more concise overview of the Git and GitHub workflow for this project.
 
 This document is written slightly in-depth for those whose first time working with Git, GitHub, and an IDE like VS Code.
 
@@ -137,21 +137,21 @@ Pull requests are great because they create a space to easily review the code, e
 
 After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
 
-Run the following command to see your branch's name
+Run the following command to see your branch's name:
 
     git branch
 
-To delete a branch, first switch to the main branch
+To delete a branch, first switch to the main branch:
 
     git checkout main
 
-Now delete your feature branch
+Now delete your feature branch:
 
     git branch -d feature-branchname
 
 ## How to rinse and repeat
 
-Now that you've gone through the setup process once, you won't need a lot of the steps from this guide again. From now on, each time you'd like to work on the website's code, I reccomend referring to [REFERENCE.md](/REFERENCE.md) to be reminded of the workflow commands.
+Now that you've gone through the setup process once, you won't need a lot of the steps from this guide again. From now on, each time you'd like to work on the website's code, I recommend referring to [REFERENCE.md](/REFERENCE.md) to be reminded of the workflow commands.
 
 ## References
 

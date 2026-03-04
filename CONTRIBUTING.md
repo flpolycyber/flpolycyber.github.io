@@ -133,6 +133,22 @@ Here is where you can add a description and stuff. If everything looks good, you
 
 Pull requests are great because they create a space to easily review the code, especially if a merge conflict occurs. If you're not sure about your code and don't want to merge it with main yet, you can message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request before squashing and merging it.
 
+### Step 6: DELETE YOUR BRANCH
+
+After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
+
+Run the following command to see your branch's name
+
+    git branch
+
+To delete a branch, first switch to the main branch
+
+    git checkout main
+
+Now delete your feature branch
+
+    git branch -d feature-branchname
+
 ## How to rinse and repeat
 
 Now that you've gone through the setup process once, you won't need a lot of the steps from this guide again. From now on, each time you'd like to work on the website's code, I reccomend referring to [REFERENCE.md](/REFERENCE.md) to be reminded of the workflow commands.

@@ -1,6 +1,8 @@
 # Git and GitHub Workflow Overview
 
-This document will give a quick overview on to contribute to FPU Cybersecurity Club's Website. If you haven't worked with Git, GitHub, and an IDE like VS Code before, I reccomend referring to [CONTRIBUTING.md](/CONTRIBUTING.md) for a more in-depth overview including Git setup.
+This document will give a quick overview on to contribute to FPU Cybersecurity Club's Website.
+
+*** If you haven't worked with Git, GitHub, and an IDE like VS Code before, I reccomend referring to [CONTRIBUTING.md](/CONTRIBUTING.md) for a more in-depth overview including Git setup.
 
 This guide also assumes you've already cloned the repository to your local files. If you haven't, refer to the document linked above.
 

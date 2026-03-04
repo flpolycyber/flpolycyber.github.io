@@ -1,6 +1,6 @@
 # How to contribute to FPU Cybersecurity Club's Website
 
-If you're comfortable with Git, GitHub, and and IDE like VS Code, please refer to [REFERENCE.md](/REFERENCE.md) for a more concise overview of the Git and GitHub workflow for this project.
+*** If you're comfortable with Git, GitHub, and and IDE like VS Code, please refer to [REFERENCE.md](/REFERENCE.md) for a more concise overview of the Git and GitHub workflow for this project.
 
 This document is written slightly in-depth for those whose first time working with Git, GitHub, and an IDE like VS Code.
 
@@ -17,9 +17,9 @@ Cloning downloads a full copy of the repository to your computer so that you can
 
 * On the repository's page on GitHub, click the green code button
 * Copy the repository's URL
-* Open VS Code and press Ctrl + J to open the terminal
+* Open your IDE (like VS Code) and press Ctrl + J to open the terminal
 
-Now **choose where you'd like to have this repository** on your computer's local files. Use your the terminal to [navigate to your chosen location](https://fernando-mc.github.io/python3-workshop/navigating-with-a-terminal.html)
+Now **choose where you'd like to have this repository** on your computer's local files. Use VS Code's terminal to [navigate to your chosen location](https://fernando-mc.github.io/python3-workshop/navigating-with-a-terminal.html)
 
 For example, from my home directory, to create the repository folder in a folder called "Code" in my Documents folder, I would run the command:
 
@@ -27,7 +27,7 @@ For example, from my home directory, to create the repository folder in a folder
 
 Double check you're in the right place by running the command pwd (print working directory).
 
-Then, on your terminal, run the following command:
+Then, on the terminal, run the following command:
 
     git clone https://github.com/RESTOFLINK
 
@@ -45,7 +45,7 @@ Now we have cloned the repository locally and navigated into the repository's fo
 
 ## Branches for Collaboration
 
-A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code.<sup>1</sup>
+A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code. (1)
 
 ### Why use Branches?
 
@@ -129,9 +129,29 @@ To create a pull request, go to the repository on GitHub. You should see a popup
 
 (*If you don't see this popup, you can go to the "Pull requests" tab on the repository instead.*)
 
-Here is where you can add a description and stuff. If everything looks good, you can go to the "Pull requests" tab on the repository, open your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
+Here is where you can add a description and stuff. If everything looks good, you can go to the "Pull requests" tab on the repository, click on your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
 
 Pull requests are great because they create a space to easily review the code, especially if a merge conflict occurs. If you're not sure about your code and don't want to merge it with main yet, you can message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request before squashing and merging it.
+
+### Step 6: DELETE YOUR BRANCH
+
+After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
+
+Run the following command to see your branch's name:
+
+    git branch
+
+To delete a branch, first switch to the main branch:
+
+    git checkout main
+
+Now delete your feature branch:
+
+    git branch -d feature-branchname
+
+## How to rinse and repeat
+
+Now that you've gone through the setup process once, you won't need a lot of the steps from this guide again. From now on, each time you'd like to work on the website's code, I recommend referring to [REFERENCE.md](/REFERENCE.md) to be reminded of the workflow commands.
 
 ## References
 

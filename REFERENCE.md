@@ -2,9 +2,23 @@
 
 This document will give a quick overview on to contribute to FPU Cybersecurity Club's Website.
 
-*** If you haven't worked with Git, GitHub, and an IDE like VS Code before, I reccomend referring to [CONTRIBUTING.md](/CONTRIBUTING.md) for a more in-depth overview including Git setup.
+*** If you haven't worked with Git, GitHub, and an IDE like VS Code before, I recommend referring to [CONTRIBUTING.md](/CONTRIBUTING.md) for a more in-depth overview including Git setup.
 
 This guide also assumes you've already cloned the repository to your local files. If you haven't, refer to the document linked above.
+
+## Adding Code to the Main Branch
+
+All changes to a repository's main branch should be done through a feature branch, and merged into the main branch via a pull request.
+
+### TL;DR
+
+git checkout main
+git pull
+git checkout -b feature-thing-im-working-on
+git diff
+git add <path/name of changed file>
+git commit -m 'short, meaningful commit message'
+git push -u origin feature-thing-im-working-on
 
 ## Step 1: Navigate to the repository
 
@@ -16,15 +30,22 @@ Make sure you're IN the repository's folder by running the command `pwd` (print 
 
 Mine looks like this because I keep the repository in a folder called Code that's in my Documents folder.
 
-## Step 2: Create a branch to edit the code in
+## Step 2: Make sure your repository is up to date with origin
 
-Do not edit code on the main branch. Make a branch to make changes in using the following command:
+    git checkout main
+    git pull
+
+## Step 3: Create a branch to edit the code in
+
+All changes to a repository's main branch should be done through a feature branch, and merged into the main branch via a pull request.
+
+Always start the name with `feature-`, then add a description of what you are working on
 
     git checkout -b feature-branchname
 
 Name your branch something descriptive based on what feature you will be working on, like `feature-mainpage`.
 
-## Step 3: Edit the code
+## Step 4: Edit the code
 
 Before editing code, always verify you're in your feature branch, NOT the main branch using
 
@@ -36,7 +57,7 @@ If needed, you can switch between branches using
 
 Now make the changes you'd like to the code.
 
-## Step 4: Send changes to the main branch
+## Step 5: Send changes to the main branch
 
 Verify you're on your feature branch with `git branch`
 
@@ -50,12 +71,14 @@ Now send the changes to the main branch using the following commands:
 
     git status
     git add .
-    git commit –m "CONCISE BUT DESCRIPTIVE MESSAGE HERE"
+    git commit –m "short, meaningful commit message here"
     git push -u origin feature-branchname
 
 (*remember to replace feature-branchname with the name of the branch*)
 
-## Step 5: Create a Pull Request in GitHub
+ Once you have pushed the branch once, you can push new changes without `-u origin`
+
+## Step 6: Create a Pull Request in GitHub
 
 Go to the repository on GitHub and create a pull request. Try to include a description.
 
@@ -63,7 +86,7 @@ If you'd like, you can message [#website-discussion](https://discord.com/channel
 
 When everything looks good, you can go to the "Pull requests" tab on the repository, click on your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
 
-## Step 6: DELETE YOUR BRANCH
+## Step 7: DELETE YOUR BRANCH
 
 After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
 

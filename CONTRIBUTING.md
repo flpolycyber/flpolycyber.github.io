@@ -45,7 +45,7 @@ Now we have cloned the repository locally and navigated into the repository's fo
 
 ## Branches for Collaboration
 
-A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code.<sup>1</sup>
+A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code. (1)
 
 ### Why use Branches?
 

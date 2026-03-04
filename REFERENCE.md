@@ -14,7 +14,7 @@ Make sure you're IN the repository's folder by running the command `pwd` (print 
 
 Mine looks like this because I keep the repository in a folder called Code that's in my Documents folder.
 
-## Create a branch to edit the code in
+## Step 2: Create a branch to edit the code in
 
 Do not edit code on the main branch. Make a branch to make changes in using the following command:
 
@@ -22,7 +22,7 @@ Do not edit code on the main branch. Make a branch to make changes in using the 
 
 Name your branch something descriptive based on what feature you will be working on, like `feature-mainpage`.
 
-## Edit the code
+## Step 3: Edit the code
 
 Before editing code, always verify you're in your feature branch, NOT the main branch using
 
@@ -34,7 +34,7 @@ If needed, you can switch between branches using
 
 Now make the changes you'd like to the code.
 
-## Send changes to the main branch
+## Step 4: Send changes to the main branch
 
 Verify you're on your feature branch with `git branch`
 
@@ -53,10 +53,26 @@ Now send the changes to the main branch using the following commands:
 
 (*remember to replace feature-branchname with the name of the branch*)
 
-## Create a Pull Request in GitHub
+## Step 5: Create a Pull Request in GitHub
 
 Go to the repository on GitHub and create a pull request. Try to include a description.
 
 If you'd like, you can message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request.
 
 When everything looks good, you can go to the "Pull requests" tab on the repository, click on your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
+
+## Step 6: DELETE YOUR BRANCH
+
+After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
+
+Run the following command to see your branch's name:
+
+    git branch
+
+To delete a branch, first switch to the main branch:
+
+    git checkout main
+
+Now delete your feature branch:
+
+    git branch -d feature-branchname

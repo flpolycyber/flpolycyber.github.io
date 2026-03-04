@@ -45,7 +45,7 @@ Now we have cloned the repository locally and navigated into the repository's fo
 
 ## Branches for Collaboration
 
-A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code.<sup>1</sup>
+A branch in Git is essentially a separate line of development. By default, Git creates a branch named main when you initialize a new repository. When you create a new branch, you're making a copy of the current branch's state so that you can make changes without affecting the original code. (1)
 
 ### Why use Branches?
 
@@ -132,6 +132,22 @@ To create a pull request, go to the repository on GitHub. You should see a popup
 Here is where you can add a description and stuff. If everything looks good, you can go to the "Pull requests" tab on the repository, click on your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
 
 Pull requests are great because they create a space to easily review the code, especially if a merge conflict occurs. If you're not sure about your code and don't want to merge it with main yet, you can message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request before squashing and merging it.
+
+### Step 6: DELETE YOUR BRANCH
+
+After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
+
+Run the following command to see your branch's name
+
+    git branch
+
+To delete a branch, first switch to the main branch
+
+    git checkout main
+
+Now delete your feature branch
+
+    git branch -d feature-branchname
 
 ## How to rinse and repeat
 

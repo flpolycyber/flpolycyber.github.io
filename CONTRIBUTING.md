@@ -4,12 +4,13 @@
 
 This document is written slightly in-depth for those whose first time working with Git, GitHub, and an IDE like VS Code.
 
-If you get stuck at any point, please feel free to message Ellie (@aether883) or [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547), we are happy to help out!. You are also welcome to refer to [this document](https://github.com/edeberry/Documentation/blob/main/Git/git-github-basics.md), which goes a little more in depth about the Git setup process.
+If you get stuck at any point, please don't hesitate to message Ellie (@aether883) or [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547), we are happy to help out!. You are also welcome to refer to [this document](https://github.com/edeberry/Documentation/blob/main/Git/git-github-basics.md), which goes a little more in depth about the Git setup process.
 
 ## Install Git and an IDE to edit the code
 
 * Install Git from [https://git-scm.com/install/](https://git-scm.com/install/)
 * Install an IDE (Integrated Development Environment) such as VS Code, which can be installed from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
+* Ensure you have access to the club's organization on GitHub
 
 ## Clone the Repository to your Local Machine
 
@@ -42,6 +43,15 @@ Now enter this folder for your repository using the cd (change directory) comman
     cd repository-name
 
 Now we have cloned the repository locally and navigated into the repository's folder on our local machine.
+
+## Pull changes from GitHub
+
+Before starting anything, always run
+
+    git checkout main
+    git pull
+
+This will pull any changes from GitHub to ensure your files are up to date.
 
 ## Branches for Collaboration
 
@@ -119,21 +129,30 @@ After submitting your email and name, run the `git push -u origin feature-branch
 
 Now the changes have been sent to GitHub, but they haven't been merged with the main branch.
 
-### Step 5: Create a Pull Request in GitHub
+Once you have pushed the branch once, you can push new changes without `-u origin`
+
+## Create a Pull Request in GitHub
 
     "Pull requests are proposals to merge code changes into a project. A pull request lets you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality."
     
     -GitHub Docs
 
-To create a pull request, go to the repository on GitHub. You should see a popup with a green button that says "Compare & pull request". Press that button.
+1. When you push the new branch on the command line, Git will print the URL to create the pull request for the branch. You can also create it on the repository page on GitHub:
+    1. Select "Pull Requests -> New pull request"
+    1. Use the "compare" dropdown to select your branch
+    1. Click "Create pull request"
+1. Add a meaningful title and description
+1. Verify your changes under the "commits" at the bottom
+1. Select "Create pull request"
 
-(*If you don't see this popup, you can go to the "Pull requests" tab on the repository instead.*)
+If you'd like, have someone review your changes (message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request)
 
-Here is where you can add a description and stuff. If everything looks good, you can go to the "Pull requests" tab on the repository, click on your PR, and "Squash and merge". Then, the changes will be reflected in the main branch as well.
+Once you are ready to merge the pull request, select "Squash and merge"
+    * If the PR says "This branch has conflicts that must be resolved", see [Resolving Conflicts](/REFERENCE.md/#resolving-conflicts)
 
-Pull requests are great because they create a space to easily review the code, especially if a merge conflict occurs. If you're not sure about your code and don't want to merge it with main yet, you can message [#website-discussion](https://discord.com/channels/643928417456095238/1364244601245925547) to get input on your pull request before squashing and merging it.
+Add a commit message and click "Confirm squash and merge". Then, the changes will be reflected in the main branch as well.
 
-### Step 6: DELETE YOUR BRANCH
+## DELETE YOUR BRANCH
 
 After submitting a pull request, delete your branch from your local files. You can make a new one later for your next changes.
 

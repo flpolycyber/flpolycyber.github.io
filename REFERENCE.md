@@ -30,10 +30,12 @@ git diff
 git add <path/name of changed file>
 git commit -m "short, meaningful commit message"
 git push -u origin feature-thing-im-working-on
+```
+Create the pull request, then delete the feature branch on VS Code using
+```bash
 git checkout main
 git branch -d feature-thing-im-working-on
 ```
-Create the pull request, then delete the feature branch on VS Code.
 
 ## Detailed steps for adding changes to the `main` branch
 

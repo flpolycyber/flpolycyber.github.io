@@ -1,0 +1,136 @@
+@font-face {
+	font-family: 'topazplus';
+	src: url('topazplus500.ttf') format('truetype');
+}
+
+:root {
+	--purple: hsl(240, 60%, 76%);
+	--border: hsl(240, 60%, 76%, .5);
+	--glow-purple: 0 0 8px hsl(240, 60%, 76%, .8), 0 0 20px hsl(240, 60%, 76%, .8);
+	--sidebar-width: 220px;
+	--button-size: 3rem;
+}
+
+body {
+	background: black;
+}
+
+
+/* Sidebar Navigation https://www.w3schools.com/howto/howto_js_sidenav.asp */
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: var(--sidebar-width);
+	background: black;
+	border-right: 1px solid var(--border);
+	z-index: 100;
+
+	transform: translateX(calc(-1 * var(--sidebar-width)));
+	transition: transform 0.3s ease-out, background-color 0.3s, border-right-color 0.3s;
+	overflow: hidden;
+}
+
+.sidebar.open {
+	transform: translateX(0);
+}
+
+.sidebar-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 5rem;
+	height: 100%;
+}
+
+.logo-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+	
+}
+
+/* Creating a hexagon https://css-shape.com/hexagon/ */
+
+.logo-hex img {
+	position: relative;
+	width: 5rem;
+	height: 5rem;
+	clip-path: polygon(-50% 50%, 50% 100%, 150% 50%,50% 0);
+}
+
+.ul-nav {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-link { 
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+}
+
+.li-nav {
+	position: relative;
+	padding: 1rem 1.5rem;
+	font-family: 'topazplus';
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--purple);
+	transition: color 0.2s, text-shadow 0.2s;
+	text-align: center;
+}
+
+.li-nav:hover::before, .sidebar-button:hover {
+	box-shadow: inset 0 0 12px var(--border), var(--glow-purple);
+}
+
+.logo-hex-underline:hover {
+	filter: drop-shadow(0 0 8px hsl(240, 60%, 76%, .8)) drop-shadow(0 0 20px hsl(240, 60%, 76%, .8));
+}
+
+/* Hover animation inspired by https://ianlunn.github.io/Hover/ */
+
+.li-nav:hover::before, .sidebar-button:hover, .logo-hex-underline:hover{
+	transition: transform 0.3s ease-out;
+	transform: scale(0.9);
+}
+
+.li-nav:hover, .sidebar-button, .logo-hex-underline{
+	transition: transform 0.3s ease-out;
+	transform: scale(1);
+}
+
+.li-nav::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border: 1px solid transparent;
+	z-index: 1; /*Makes the li-nav a be clickable in the .li-nav*/
+}
+
+.li-nav::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 1px;
+	background: var(--purple);
+	transition: width 0.5s ease;
+}
+
+.li-nav:hover::after {
+	width: 67.67%; /* ⁶🤷⁷ */
+}

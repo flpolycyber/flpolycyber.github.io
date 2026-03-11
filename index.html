@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florida Poly Cyber Club</title>
-    <link rel="stylesheet" href="sidebar.css"/>
-    <link rel="stylesheet" href="sidebar_button.css"/>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
 
+    
     <button class="sidebar-button" id="sidebarToggle" aria-label="Toggle sidebar">
-        <span class="toggle-bar"></span>
-        <span class="toggle-bar"></span>
-        <span class="toggle-bar"></span>
+        <object id="sidebarSVG" type="image/svg+xml" data="/assets/retro_line.svg"></object>
     </button>
 
     <nav class="sidebar" id="sidebar">
@@ -20,32 +18,25 @@
 
             <div class="logo-wrap">
                 <div class="logo-hex-underline">
-                    <a href="/index.html" class="logo-hex">
-                        <img src="cyber_club.jpg" alt="Cyber Club Logo">
+                    <a href="/" class="logo-hex" title="Florida Poly Cyber Club">
+                        <object id="logo" type="image/svg+xml" data="/assets/logo.svg"></object>
                     </a>
                 </div>
             </div>
 
 
             <ul class="ul-nav">
-                <li class="li-nav"><a href="Mission.html" class="nav-link">Mission</a></li>
-                <li class="li-nav"><a href="Blog.html" class="nav-link">Blog</a></li>
-                <li class="li-nav"><a href="Calendar.html" class="nav-link">Calendar</a></li>
-                <li class="li-nav"><a href="Events.html" class="nav-link">Events</a></li>
-                <li class="li-nav"><a href="Wiki.html" class="nav-link">Wiki</a></li>
-                <li class="li-nav"><a href="Social Media.html" class="nav-link">Social Media</a></li>
+                <li class="li-nav glitch"><a href="Mission.html" class="nav-link" >Mission</a></li>
+                <li class="li-nav glitch"><a href="Blog.html" class="nav-link">Blog</a></li>
+                <li class="li-nav glitch"><a href="Calendar.html" class="nav-link">Calendar</a></li>
+                <li class="li-nav glitch"><a href="Events.html" class="nav-link">Events</a></li>
+                <li class="li-nav glitch"><a href="Wiki.html" class="nav-link">Wiki</a></li>
+                <li class="li-nav glitch"><a href="Social Media.html" class="nav-link">Social Media</a></li>
             </ul>
         </div>
     </nav>
 
-<script>
-    const toggle = document.getElementById('sidebarToggle');
-    const sidebar = document.getElementById('sidebar');
-
-    toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-        toggle.classList.toggle('active');
-    });
-</script>
 </body>
 </html>
+
+<script type="module" src="/JS/main.js"></script>

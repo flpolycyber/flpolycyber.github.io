@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -125 700 800">
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <path id="hamburger-line" d="M132.59,97.08v-31.24s131.59,0,131.59,0v32.42s131.59,0,131.59,0v-32.42s131.59,0,131.59,0v31.24s131.59,0,131.59,0V31.89s-131.59,0-131.59,0V1s-131.59,0-131.59,0v32.42s-131.59,0-131.59,0V1s-131.59,0-131.59,0v35.48H1s0,60.6,0,60.6h131.59Z"/>
+
+    <style>
+      use {
+        transform-box: fill-box;
+        transform-origin: center center;
+        fill: hsl(183, 100%, 50%);
+        stroke: hsl(183, 100%, 50%);
+        stroke-width: 8; 
+        stroke-linecap: round;
+        filter: url(#neon-glow); 
+        transition: transform 1.5s cubic-bezier(0.4, 0.6, 0.6, 0.4);
+      }
+
+      :root.active #line_1 {
+        transform: translateY(250px) rotate(-45deg) rotateY(-180deg) rotateZ(360deg);
+      }
+
+      :root.active #line_2 {
+        transform: translateY(100px) rotate(45deg) rotateY(-180deg) rotateZ(180deg);
+      }
+
+      :root.active #line_3 {
+        transform: translateY(-50px) rotate(-45deg) rotateY(180deg) rotateZ(180deg);
+      }
+      
+      :root.active #line_4 {
+        transform: translateY(-200px) rotate(45deg) rotateY(180deg) rotateZ(360deg);
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(0, 0)">
+    <use id="line_1" href="#hamburger-line"/>
+  </g>
+  <g transform="translate(0, 150)">
+    <use id="line_2" href="#hamburger-line"/>
+  </g>
+  <g transform="translate(0, 300)">
+    <use id="line_3" href="#hamburger-line"/>
+  </g>
+  <g transform="translate(0, 450)">
+    <use id="line_4" href="#hamburger-line"/>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+/* Hamburger to X transition from https://codepen.io/TheeBryanWhite/pen/KwdWQP */
+
+.sidebar-button {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 200;
+	width: var(--button-size);
+	height: var(--button-size);
+	background: var(--bg-sidebar);
+	border: 1px solid var(--border);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	padding: 0;
+	transition: box-shadow 0.3s ease;
+}
+
+#sidebarSVG {
+    display: block;
+    width: 80%;
+    height: 80%;
+    
+    background: transparent; 
+        
+    overflow: visible;
+	cursor: pointer; /* Allows the event listener for objects to work */
+}
+#sidebarSVG{
+	pointer-events: none; /* Allows the event listener for objects to work */
+}

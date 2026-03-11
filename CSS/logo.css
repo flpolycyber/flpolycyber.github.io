@@ -1,0 +1,31 @@
+/* Creating a hexagon https://css-shape.com/hexagon/ */
+
+.logo-hex * {
+	position: relative;
+	width: 5rem;
+	height: 5rem;
+	clip-path: polygon(-50% 50%, 50% 100%, 150% 50%,50% 0);
+	background: var(--iconbg);
+}
+
+.logo-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;	
+}
+.logo-hex {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; /* Allows the event listener for objects to work */
+}
+
+#logo{
+	width: 100px;
+	height: 100px;
+	pointer-events: none; /* Allows the event listener for objects to work */
+}
+
+.logo-hex-underline:hover {
+	filter: drop-shadow(0 0 8px hsl(240, 60%, 76%, .8)) drop-shadow(0 0 20px hsl(240, 60%, 76%, .8));
+}

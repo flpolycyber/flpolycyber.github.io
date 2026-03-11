@@ -1,0 +1,16 @@
+node_modules/
+/vendor/
+
+/dist/
+/build/
+/tmp/
+*.log
+*.temp
+*.cache
+
+.env
+
+.vscode/ # VS Code
+.idea/ # IntelliJ
+*.suo
+*.user

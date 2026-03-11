@@ -1,0 +1,30 @@
+@import "logo.css";
+@import "sidebar_button.css";
+@import "sidebar.css";
+@import "glitch.css";
+
+@font-face {
+	font-family: 'topazplus';
+	src: url('../fonts/topazplus500.ttf') format('truetype');
+}
+
+
+/* https://www.w3schools.com/colors/colors_hsl.asp */
+:root {
+	--purple: hsl(240, 60%, 76%);
+	--border: hsl(240, 60%, 76%, .5);
+	--iconbg: hsl(264, 51%, 36%);
+	--glow-purple: 0 0 8px hsl(240, 60%, 76%, .8), 0 0 20px hsl(240, 60%, 76%, .8);
+    --bg-body: hsl(0, 0%, 0%);
+    --bg-sidebar: hsl(0, 0%, 0%);
+	--sidebar-width: 220px;
+	--button-size: 3rem;
+
+	--glitch1: hsl(179, 100%, 50%);
+	--glitch2: hsl(59, 100%, 50%);
+	--glitch3: hsl(299, 100%, 50%);
+}
+
+body {
+	background: var(--bg-body);
+}

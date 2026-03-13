@@ -27,7 +27,6 @@
     background: transparent; 
         
     overflow: visible;
-	cursor: pointer; /* Allows the event listener for objects to work */
 }
 #sidebarSVG{
 	pointer-events: none; /* Allows the event listener for objects to work */

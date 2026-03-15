@@ -4,8 +4,13 @@ const sidebar = document.getElementById('sidebar');
 
 function HamburgerAddEventListener() {
     const svgDoc = sidebar_SVG.contentDocument; 
-    
     const svgRoot = svgDoc.documentElement;
+
+    // Chromium first-load race: <object> tag's load event can fire before the SVG's internal DOM loads
+    if (!svgRoot.viewBox || !svgRoot.viewBox.baseVal) {
+        requestAnimationFrame(HamburgerAddEventListener);
+        return;
+    }
 
     toggle.addEventListener('click', () => {
         sidebar.classList.toggle('open');

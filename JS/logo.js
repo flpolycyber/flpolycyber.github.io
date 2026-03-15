@@ -9,6 +9,12 @@ function logoEventListener() {
     const clipCircle = svgDoc.querySelector('#circleclip');
     const svgElement = svgDoc.documentElement;
 
+    // Chromium first-load race: <object> tag's load event can fire before the SVG's internal DOM loads
+    if (!svgElement.viewBox || !svgElement.viewBox.baseVal) {
+        requestAnimationFrame(logoEventListener);
+        return;
+    }
+
     let ticket;
     let mouseX = 0;
     let mouseY = 0;
@@ -16,16 +22,16 @@ function logoEventListener() {
     const updatePosition = () => {
         const rect = obj.getBoundingClientRect();
         const viewBox = svgElement.viewBox.baseVal;
-        
+
         const scaleX = viewBox.width / rect.width;
         const scaleY = viewBox.height / rect.height;
-        
+
         const x = (mouseX - rect.left) * scaleX;
         const y = (mouseY - rect.top) * scaleY;
-          
+
         clipCircle.setAttribute('cx', x);
         clipCircle.setAttribute('cy', y);
-        
+
         ticket = null;
     };
 
@@ -38,17 +44,15 @@ function logoEventListener() {
         }
     });
 
-    doc.addEventListener('mouseleave', () => { /* ⁶🤷⁷ */
+    doc.addEventListener('mouseleave', () => {
         clipCircle.setAttribute('cx', 676767.676767);
         clipCircle.setAttribute('cy', 676767.676767);
     });
-};
+}
 
-// Firefox Issue where the javascript fires off before the SVG loads
+// Firefox fix: JS can fire before the SVG loads
 if (obj.contentDocument && obj.contentDocument.readyState === 'complete') {
-    // already loaded
     logoEventListener();
 } else {
-    // wait until it loads
     obj.addEventListener('load', logoEventListener);
 }

@@ -17,8 +17,8 @@
 	--glow-purple: 0 0 8px hsl(240, 60%, 76%, .8), 0 0 20px hsl(240, 60%, 76%, .8);
     --bg-body: hsl(0, 0%, 0%);
     --bg-sidebar: hsl(0, 0%, 0%);
-	--sidebar-width: 220px;
-	--button-size: 3rem;
+	--sidebar-width: 300px;
+	--button-size: 60px;
 
 	--glitch1: hsl(179, 100%, 50%);
 	--glitch2: hsl(59, 100%, 50%);

@@ -23,11 +23,9 @@
     display: block;
     width: 80%;
     height: 80%;
-    
     background: transparent; 
-        
     overflow: visible;
+	pointer-events: none;
+	will-change: transform;
 }
-#sidebarSVG{
-	pointer-events: none; /* Allows the event listener for objects to work */
-}
+

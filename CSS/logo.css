@@ -15,15 +15,16 @@
 	margin-bottom: 2rem;	
 }
 .logo-hex {
-  position: relative;
-  display: inline-block;
-  cursor: pointer; /* Allows the event listener for objects to work */
+  	position: relative;
+  	display: inline-block;
+  	cursor: pointer; /* Allows the event listener for objects to work */
 }
 
 #logo{
 	width: 100px;
 	height: 100px;
 	pointer-events: none; /* Allows the event listener for objects to work */
+	will-change: transform;
 }
 
 .logo-hex-underline:hover {

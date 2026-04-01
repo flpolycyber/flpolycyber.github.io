@@ -8,6 +8,21 @@
 	src: url('../fonts/topazplus500.ttf') format('truetype');
 }
 
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #009FDF, 0 0 50px #009FDF, 0 0 60px #009FDF, 0 0 70px #009FDF;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #4EE7F2, 0 0 50px #4EE7F2, 0 0 60px #4EE7F2, 0 0 70px #4EE7F2, 0 0 80px #4EE7F2;
+  }
+}
+
 
 /* https://www.w3schools.com/colors/colors_hsl.asp */
 :root {
@@ -27,4 +42,81 @@
 
 body {
 	background: var(--bg-body);
+}
+
+
+
+.matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  font-family: topazplus;
+  overflow: hidden;
+  background-color: #000;
+}
+
+
+.matrix-num {
+  color: #009FDF;
+  font-size: 15px;
+  position: absolute;
+  font-family: monospace;
+  top: -50px;
+  animation: fall 4s linear infinite;
+
+}
+
+
+.pgtitle {
+  color: #50298a;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-size: 25px;
+}
+
+.container {
+  z-index: 1;
+  display: grid;
+  grid-template-areas:
+    "pgtitle pgtitle"
+    "navbar navbar"
+    "left right"
+    "footer footer";
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  background-color: #50298a;
+  padding: 10px; 
+}
+
+.container div{
+  background-color: white;
+  padding: 10px;
+
+}
+.container div.pgtitle{
+  background-color: black;
+  grid-area: pgtitle;
+  text-align: center;
+}
+
+.container div.navbar{
+  background-color: #220638;
+  grid-area: navbar;
+}
+
+.container div.left{
+  grid-area: left;
+}
+
+.container div.right{
+  grid-area: right;
+}
+
+.container div.footer{
+  grid-area: footer;
+  text-align: center;
 }

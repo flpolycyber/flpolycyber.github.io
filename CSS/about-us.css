@@ -1,3 +1,23 @@
+@font-face {
+	font-family: 'topazplus';
+	src: url('../fonts/topazplus500.ttf') format('truetype');
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #009FDF, 0 0 50px #009FDF, 0 0 60px #009FDF, 0 0 70px #009FDF;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #4EE7F2, 0 0 50px #4EE7F2, 0 0 60px #4EE7F2, 0 0 70px #4EE7F2, 0 0 80px #4EE7F2;
+  }
+}
+
 .matrix {
   position: fixed;
   top: 0;
@@ -20,22 +40,6 @@
   animation: fall 4s linear infinite;
 
 }
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #009FDF, 0 0 50px #009FDF, 0 0 60px #009FDF, 0 0 70px #009FDF;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #4EE7F2, 0 0 50px #4EE7F2, 0 0 60px #4EE7F2, 0 0 70px #4EE7F2, 0 0 80px #4EE7F2;
-  }
-}
-
 
 
 .pgtitle {

@@ -63,7 +63,7 @@ body {
   color: #009FDF;
   font-size: 15px;
   position: absolute;
-  font-family: monospace;
+  font-family: topazplus;
   top: -50px;
   animation: fall 4s linear infinite;
 
@@ -77,6 +77,7 @@ body {
   animation: glow 1s ease-in-out infinite alternate;
   font-size: 25px;
   text-align: center;
+  font-family: topazplus;
 }
 
 .container {
@@ -95,6 +96,7 @@ body {
 .container div{
   background-color: white;
   padding: 10px;
+  font-family: topazplus;
 
 }
 

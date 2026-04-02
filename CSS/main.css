@@ -76,13 +76,13 @@ body {
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
   font-size: 25px;
+  text-align: center;
 }
 
 .container {
   z-index: 1;
   display: grid;
   grid-template-areas:
-    "pgtitle pgtitle"
     "navbar navbar"
     "left right"
     "footer footer";
@@ -97,11 +97,7 @@ body {
   padding: 10px;
 
 }
-.container div.pgtitle{
-  background-color: black;
-  grid-area: pgtitle;
-  text-align: center;
-}
+
 
 .container div.navbar{
   background-color: #220638;

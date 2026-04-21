@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florida Poly Cyber Club</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 
     <!-- preload CSS -->
     <link rel="preload" href="/CSS/sidebar.css" as="style">
     <link rel="preload" href="/CSS/sidebar_button.css" as="style">
     <link rel="preload" href="/CSS/logo.css" as="style">
     <link rel="preload" href="/CSS/glitch.css" as="style">
+    <link rel="preload" href="/CSS/connected.css" as="style">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/CSS/main.css"/>
@@ -58,14 +60,71 @@
               Defensive Meetings: Wednesdays @ 5:30pm<br>
               Offensive Meetings: Fridays @ 5:30pm
               </div>
-              <div class="footer"><h3>feet</h3></div>
+              <div class="footer"><h3>feet👅🦶</h3></div>
           </div>
       </div>
 
 
-    
+    <div class="content">
+        <div class="stay_connected">
+            <h1>Stay Connected</h1>
 
-    <button class="sidebar-button" id="sidebarToggle" aria-label="Toggle sidebar">
+            <div class="connected_row">
+                <form class="join" id="form_contact">
+                    <h2> Contact Us </h2>
+                    <h3> Name </h3>
+                    <input class="connect_input" type="text" placeholder="Name" title="Name" name="Name" required>
+
+                    <h3> Email </h3>
+                    <input class="connect_input" type="email" placeholder="youremail@cyber.com" title="Email" name="Email" required>
+
+                    <h3> Message </h3>
+                    <textarea class="connect_input" rows="4" cols="120" type="text" placeholder="Message..." title="Message" name="Message" required></textarea>
+
+                    <button id="form_contact_button" type="submit" value="Send" class="retro_button connect_input" title="Send">Send</button>
+
+                </form>
+
+                <!-- https://pixelartvillage.com/ used to convert PNGs to pixel art-->
+                <div class="grid_container">
+                    <h2> How to Join </h2>
+                    <div class="grid4x4">
+                        <div class="grid_item">
+                            <h3> Involve </h3>
+                            <a href="https://floridapoly.presence.io/organization/cybersecurity-club" target="_blank"
+                                rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce involve_img" src="./assets/involve_8bit.png" title="Involve" draggable="false">
+                            </a>
+                        </div>
+
+                        <div class="grid_item">
+                            <h3> Discord </h3>
+                            <a href="https://discord.gg/AkfMMtyXq4" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce discord_img" src="./assets/discord_8bit.png" title="Discord" draggable="false">
+                            </a>
+                        </div>
+
+                        <div class="grid_item">
+                            <h3> Instagram </h3>
+                            <a href="https://www.instagram.com/flpolycyberclub/" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce instagram_img" src="./assets/instagram_8bit.png" title="Instagram" draggable="false">
+                            </a>
+                        </div>
+
+                        <div class="grid_item">
+                            <h3> Github </h3>
+                            <a href="https://github.com/flpolycyber" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce github_img" src="./assets/github_8bit.png" title="Github" draggable="false">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <button class="sidebar-button hover_bounce" id="sidebarToggle" aria-label="Toggle sidebar">
         <object id="sidebarSVG" type="image/svg+xml" data="/assets/retro_line.svg"></object>
     </button>
 
@@ -73,7 +132,7 @@
         <div class="sidebar-inner">
 
             <div class="logo-wrap">
-                <div class="logo-hex-underline">
+                <div class="logo-hex-underline hover_bounce">
                     <a href="/" class="logo-hex" title="Florida Poly Cyber Club">
                         <object id="logo" type="image/svg+xml" data="/assets/logo.svg"></object>
                     </a>
@@ -82,12 +141,12 @@
 
 
             <ul class="ul-nav">
-                <li class="li-nav glitch"><a href="mission.html" class="nav-link" >Mission</a></li>
-                <li class="li-nav glitch"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="li-nav glitch"><a href="calendar.html" class="nav-link">Calendar</a></li>
-                <li class="li-nav glitch"><a href="events.html" class="nav-link">Events</a></li>
-                <li class="li-nav glitch"><a href="wiki.html" class="nav-link">Wiki</a></li>
-                <li class="li-nav glitch"><a href="social-media.html" class="nav-link">Social Media</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="mission.html" class="nav-link" >Mission</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="calendar.html" class="nav-link">Calendar</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="events.html" class="nav-link">Events</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li class="li-nav glitch hover_bounce"><a href="social-media.html" class="nav-link">Social Media</a></li>
             </ul>
         </div>
         

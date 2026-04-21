@@ -2,7 +2,11 @@
 @import "sidebar_button.css";
 @import "sidebar.css";
 @import "glitch.css";
+@import "connected.css";
 
+/* 
+From https://github.com/rewtnull/amigafonts
+*/
 @font-face {
 	font-family: 'topazplus';
 	src: url('../fonts/topazplus500.ttf') format('truetype');
@@ -30,8 +34,8 @@
 	--border: hsl(240, 60%, 76%, .5);
 	--iconbg: hsl(264, 51%, 36%);
 	--glow-purple: 0 0 8px hsl(240, 60%, 76%, .8), 0 0 20px hsl(240, 60%, 76%, .8);
-    --bg-body: hsl(0, 0%, 0%);
-    --bg-sidebar: hsl(0, 0%, 0%);
+  --bg-body: hsl(0, 0%, 0%);
+  --bg-sidebar: hsl(0, 0%, 0%);
 	--sidebar-width: 300px;
 	--button-size: 60px;
 
@@ -100,7 +104,6 @@ body {
 
 }
 
-
 .container div.navbar{
   background-color: #220638;
   grid-area: navbar;
@@ -117,4 +120,25 @@ body {
 .container div.footer{
   grid-area: footer;
   text-align: center;
+}
+
+/* Hover animation inspired by https://ianlunn.github.io/Hover/ */
+
+.hover_bounce:hover{
+	transition: transform 0.3s ease-out;
+	transform: scale(0.9);
+}
+
+.hover_bounce{
+	transition: transform 0.3s ease-out;
+	transform: scale(1);
+}
+
+
+button:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
 }

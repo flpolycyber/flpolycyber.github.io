@@ -1,6 +1,11 @@
 import leaders from '../store/leaders.js';
 
 const element = document.getElementById('leaders');
+const box = document.getElementById('leaders');
+
+const canvas = document.getElementById('packetCanvas');
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = "SpringGreen"; // never changed to a new color
 
 function attachHoverOnlyAnimatedWebp(item, imgElement, animatedSrc) {
     let stillSrc = null;
@@ -82,26 +87,6 @@ for (const leader of leaders) {
     element.appendChild(item);
 }
 
-const box = document.getElementById('leaders');
-
-const minShot = 1000;
-const maxShot = 3000;
-const poolSize = 5;
-
-const packetAnimationOptions = {
-    duration: 1000,
-    fill: 'none', // discards the animation
-    easing: 'linear',
-};
-
-const packetAnimations = {
-    leftToRight: [{ left: '0%',   opacity: 1 }, { left: '100%', opacity: 1 }],
-    rightToLeft: [{ left: '100%', opacity: 1 }, { left: '0%',   opacity: 1 }],
-    topToBottom: [{ top:  '0%',   opacity: 1 }, { top:  '100%', opacity: 1 }],
-    bottomToTop: [{ top:  '100%', opacity: 1 }, { top:  '0%',   opacity: 1 }],
-};
-
-
 let pageVisible = !document.hidden;
 document.addEventListener('visibilitychange', () => {
     pageVisible = !document.hidden;
@@ -129,26 +114,27 @@ const bounceOptions = {
     easing: 'ease-out'
 };
 
-class Router {
+const PACKETSIZE = 4; //pixels
+const minShot = 1000;
+const maxShot = 3000;
 
-    constructor(id, edge1, animation1, edge2, animation2) {
+class Router {
+    constructor(id, istop, isleft) {
         const el = document.getElementById(id);
         if (!el) {
             console.error(`${id} not found`);
             return;
         }
 
+        // top is true, bottom is false
+        // left is true, right is false
         this.el = el;
-        this.edge1 = edge1;
-        this.animation1 = animation1;
-        this.edge2 = edge2;
-        this.animation2 = animation2;
+        this.istop = istop;
+        this.isleft = isleft;
 
-        // Object pools
-        this.pool1 = this.#buildPool(edge1, animation1);
-        this.pool2 = this.#buildPool(edge2, animation2);
-        this.poolIndex1 = 0;
-        this.poolIndex2 = 0;
+        // float to 0-1
+        this.path1 = [];
+        this.path2 = [];
 
         el.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -158,58 +144,13 @@ class Router {
         this.#scheduleNext();
     }
 
-    #buildPool(edge, keyframes) {
-        return Array.from({
-            length: poolSize
-        }, () => {
-            const span = document.createElement('span');
-            span.className = 'packet';
-            // Pin to edge; opacity driven by keyframes so no residual style needed
-            span.style[edge] = 'calc(-1 * var(--border_size))';
-            span.style.opacity = '0';
-            // DO NOT append to DOM yet — added/removed per animation
-            return {
-                element: span,
-                keyframes,
-                animation: null
-            };
-        });
-    }
-
-    #firePool(pool, indexKey) {
-        const i = this[indexKey];
-        this[indexKey] = (i + 1) % poolSize;
-        const packet = pool[i];
-
-
-        if (packet.animation && packet.animation.playState !== 'finished') {
-            packet.animation.cancel();
-            packet.element.remove();
-        }
-
-        // Insert into DOM only for the duration of the animation
-        box.appendChild(packet.element);
-
-        packet.animation = packet.element.animate(packet.keyframes, packetAnimationOptions);
-
-        // Remove from DOM the moment the animation ends — keeps idle pool
-        // elements out of the render tree entirely.
-        packet.animation.addEventListener('finish', () => {
-            packet.element.remove();
-            packet.animation = null;
-        }, {
-            once: true
-        });
-
-        this.#bounce_router();
-    }
-
     fire() {
         if (Math.random() >= 0.5) {
-            this.#firePool(this.pool1, 'poolIndex1');
+            this.path1.push(0.0);
         } else {
-            this.#firePool(this.pool2, 'poolIndex2');
+            this.path2.push(0.0);
         }
+        this.#bounce_router();
     }
 
     #bounce_router() {
@@ -228,9 +169,69 @@ class Router {
             this.#scheduleNext();
         }, delay);
     }
+
+    update(deltatime) {
+        for (let i = 0; i < this.path1.length; i++) {
+            this.path1[i] += deltatime;
+            if (this.path1[i] >= 1.0) {
+                this.path1.splice(i, 1);
+                continue;
+            }
+            this.draw(this.path1[i], true);
+        }
+
+        for (let i = 0; i < this.path2.length; i++) {
+            this.path2[i] += deltatime;
+            if (this.path2[i] >= 1.0) {
+                this.path2.splice(i, 1);
+                continue;
+            }
+            this.draw(this.path2[i], false);
+        }
+    }
+
+    draw(percent, isVert) {
+        // Keep packets inside canvas bounds
+        const rightX = Math.max(0, canvas.width - PACKETSIZE);
+        const bottomY = Math.max(0, canvas.height - PACKETSIZE);
+
+        let x = rightX;
+        let y = bottomY;
+
+        if (isVert) {
+            // Vertical travel on left or right edge
+            x = this.isleft ? 0 : rightX;
+            y = (this.istop ? percent : (1 - percent)) * bottomY;
+        } else {
+            // Horizontal travel on top or bottom edge
+            y = this.istop ? 0 : bottomY;
+            x = (this.isleft ? percent : (1 - percent)) * rightX;
+        }
+
+        ctx.fillRect(x, y, PACKETSIZE, PACKETSIZE);
+    }
 }
 
-const topleft = new Router('top-left', 'top', packetAnimations.leftToRight, 'left', packetAnimations.topToBottom);
-const topright = new Router('top-right', 'top', packetAnimations.rightToLeft, 'right', packetAnimations.topToBottom);
-const bottomleft = new Router('bottom-left', 'bottom', packetAnimations.leftToRight, 'left', packetAnimations.bottomToTop);
-const bottomright = new Router('bottom-right', 'bottom', packetAnimations.rightToLeft, 'right', packetAnimations.bottomToTop);
+const routers = [
+    new Router('top-left', true, true),
+    new Router('top-right', true, false),
+    new Router('bottom-left', false, true),
+    new Router('bottom-right', false, false)
+]
+
+let lastTime = 0;
+
+function animate(timestamp) {
+
+    const deltaTime = Math.min((timestamp - lastTime) / 1000, 0.1);
+    lastTime = timestamp;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const router of routers) {
+        router.update(deltaTime)
+    }
+
+    requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);

@@ -24,10 +24,8 @@
 }
 
 .leader_container {
-    --corner_size: calc(3vw + 3vh);
-    --corner_move: calc(-0.5 * var(--corner_size));
-    --border_size: 10px;
-    --packet_size: 10px;
+    --corner_size: calc(4vw + 4vh);
+    --corner_move: calc(-0.4 * var(--corner_size));
     --packet_color: SpringGreen;
 
     display: grid;
@@ -49,6 +47,21 @@
     }
 }
 
+#packetCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.leader_container > * {
+    position: relative;
+    z-index: 1;
+}
+
 .corner {
     position: absolute;
     width: var(--corner_size);
@@ -56,9 +69,6 @@
     object-fit: cover;
     cursor: pointer;
     transition: filter 0.15s ease;
-
-    /* routers show over the packets */
-    z-index: 1;
 }
 
 #top-left {
@@ -76,11 +86,4 @@
 #bottom-right {
     bottom: var(--corner_move);
     right: var(--corner_move);
-}
-
-.packet {
-    position: absolute;
-    width: var(--packet_size);
-    height: var(--border_size);
-    background-color: var(--packet_color);
 }

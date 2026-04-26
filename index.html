@@ -11,13 +11,14 @@
         <link rel="preload" href="/CSS/logo.css" as="style">
         <link rel="preload" href="/CSS/glitch.css" as="style">
         <link rel="preload" href="/CSS/connected.css" as="style">
+        <link rel="preload" href="/CSS/leader.css" as="style">
         <!-- CSS -->
         <link rel="stylesheet" href="/CSS/main.css" />
         <!-- JS -->
         <script type="module" src="/JS/main.js"></script>
     </head>
     <body>
-        <!-- <div class="matrix">
+        <div class="matrix">
             <span class="matrix-num" style="left: 1%; animation-delay: 0.1s;">1</span>
             <span class="matrix-num" style="left: 2%; animation-delay: 3.2s;">10</span>
             <span class="matrix-num" style="left: 7%; animation-delay: 1.1s;">0</span>
@@ -43,9 +44,9 @@
             <span class="matrix-num" style="left: 92%; animation-delay: 1.3s;">01 0 1</span>
             <span class="matrix-num" style="left: 99%; animation-delay: 0.1s;">1</span>
             <span class="matrix-num" style="left: 98%; animation-delay: 3.1s;">111</span>
-        </div> -->
+        </div>
         <div class="content">
-            <!-- <div class="pgtitle"><h1>Florida Poly Cybersecurity</h1></div> -->
+            <div class="pgtitle"><h1>Florida Poly Cybersecurity</h1></div>
             <div class="container">
                 <div class="navbar">
                     <h1></h1>
@@ -132,16 +133,17 @@
             </div>
         </div>
 
+
         <!-- leaders div is dynamlly injected-->
         <div class="leader_header"> 
             <h1>Meet our Team</h1>
-            <div id="leaders" class="leader_container leader_top leader_bottom ">
+            <div id="leaders" class="leader_container">
+                <canvas id="packetCanvas"></canvas>
                 <img src="/assets/router.png" class="corner" id="top-left" title="click me">
                 <img src="/assets/router.png" class="corner" id="top-right" title="click me">
                 <img src="/assets/router.png" class="corner" id="bottom-left" title="click me">
                 <img src="/assets/router.png" class="corner" id="bottom-right" title="click me">
-        </div>
-
+            </div>
         </div>
 
         <button class="sidebar-button hover_bounce" id="sidebarToggle" aria-label="Toggle sidebar">

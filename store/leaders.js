@@ -7,6 +7,8 @@
 // }[]
 
 // Emoji found on https://googlefonts.github.io/noto-emoji-animation/
+// used magick to compress the animated webps
+// magick mogrify -format webp -quality 90 -define webp:method=6 *.webp
 
 const leaders = [
     {"position": "President", "name": "Jonahthan Kim", "pic": "/assets/Alien-monster.webp", "color": "Cyan"},
@@ -17,8 +19,8 @@ const leaders = [
     {"position": "Blue Team Leader", "name": "Skylar Limburg", "pic": "/assets/Locked.webp", "color": "DeepSkyBlue"},
     {"position": "Red Team Leader", "name": "Colton Henwell & Jayson Santiago", "pic": "/assets/Flying-saucer.webp", "color": "Crimson"},
     {"position": "Hardware Leader", "name": "Skylar Limburg", "pic": "/assets/Pager.webp", "color": "Orange"},
-    {"position": "Website Leader", "name": "Skylar Limburg", "pic": "/assets/Rocket.webp", "color": "MediumSpringGreen"},
     {"position": "Social Media Manager", "name": "TBA", "pic": "/assets/Camera-flash.webp", "color": "HotPink"},
+    {"position": "Website Leader", "name": "Skylar Limburg", "pic": "/assets/Rocket.webp", "color": "MediumSpringGreen"},
 ];
 
 

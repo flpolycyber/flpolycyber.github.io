@@ -1,120 +1,157 @@
-@import "logo.css";
-@import "sidebar_button.css";
-@import "sidebar.css";
-@import "glitch.css";
+@import "./logo.css";
+@import "./sidebar_button.css";
+@import "./sidebar.css";
+@import "./glitch.css";
+@import "./connected.css";
+@import "./leader.css";
 
+/* 
+From https://github.com/rewtnull/amigafonts
+*/
 @font-face {
-	font-family: 'topazplus';
-	src: url('../fonts/topazplus500.ttf') format('truetype');
+    font-family: "topazplus";
+    src: url("../fonts/topazplus500.ttf") format("truetype");
 }
 
 @keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
+    to {
+        transform: translateY(110vh);
+    }
 }
 
 @-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #009FDF, 0 0 50px #009FDF, 0 0 60px #009FDF, 0 0 70px #009FDF;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #009FDF, 0 0 40px #4EE7F2, 0 0 50px #4EE7F2, 0 0 60px #4EE7F2, 0 0 70px #4EE7F2, 0 0 80px #4EE7F2;
-  }
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009fdf,
+            0 0 40px #009fdf, 0 0 50px #009fdf, 0 0 60px #009fdf,
+            0 0 70px #009fdf;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #009fdf, 0 0 40px #4ee7f2,
+            0 0 50px #4ee7f2, 0 0 60px #4ee7f2, 0 0 70px #4ee7f2,
+            0 0 80px #4ee7f2;
+    }
 }
-
 
 /* https://www.w3schools.com/colors/colors_hsl.asp */
 :root {
-	--purple: hsl(240, 60%, 76%);
-	--border: hsl(240, 60%, 76%, .5);
-	--iconbg: hsl(264, 51%, 36%);
-	--glow-purple: 0 0 8px hsl(240, 60%, 76%, .8), 0 0 20px hsl(240, 60%, 76%, .8);
+    --purple: hsl(240, 60%, 76%);
+    --border: hsl(240, 60%, 76%, 0.5);
+    --iconbg: hsl(264, 51%, 36%);
+    --glow-purple: 0 0 8px hsl(240, 60%, 76%, 0.8),
+        0 0 20px hsl(240, 60%, 76%, 0.8);
     --bg-body: hsl(0, 0%, 0%);
     --bg-sidebar: hsl(0, 0%, 0%);
-	--sidebar-width: 300px;
-	--button-size: 60px;
+    --sidebar-width: 300px;
+    --button-size: 60px;
 
-	--glitch1: hsl(179, 100%, 50%);
-	--glitch2: hsl(59, 100%, 50%);
-	--glitch3: hsl(299, 100%, 50%);
+    --glitch1: hsl(179, 100%, 50%);
+    --glitch2: hsl(59, 100%, 50%);
+    --glitch3: hsl(299, 100%, 50%);
 }
 
 body {
-	background: var(--bg-body);
+    background: var(--bg-body);
+
+    /* disables horizontal scrolling  */
+    overflow-x: hidden; 
 }
-
-
 
 .matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  font-family: topazplus;
-  overflow: hidden;
-  background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    font-family: topazplus;
+    overflow: hidden;
+    background-color: #000;
 }
-
 
 .matrix-num {
-  color: #009FDF;
-  font-size: 15px;
-  position: absolute;
-  font-family: topazplus;
-  top: -50px;
-  animation: fall 4s linear infinite;
-
+    color: #009fdf;
+    font-size: 15px;
+    position: absolute;
+    font-family: topazplus;
+    top: -50px;
+    animation: fall 4s linear infinite;
 }
 
-
 .pgtitle {
-  color: #50298a;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-  font-size: 25px;
-  text-align: center;
-  font-family: topazplus;
+    color: #50298a;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+    font-size: 25px;
+    text-align: center;
+    font-family: topazplus;
 }
 
 .container {
-  z-index: 1;
-  display: grid;
-  grid-template-areas:
-    "navbar navbar"
-    "left right"
-    "footer footer";
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  background-color: #50298a;
-  padding: 10px; 
+    display: grid;
+    grid-template-areas:
+        "navbar navbar"
+        "left right"
+        "footer footer";
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    background-color: #50298a;
+    padding: 10px;
 }
 
-.container div{
-  background-color: white;
-  padding: 10px;
-  font-family: topazplus;
-
+.container div {
+    background-color: white;
+    padding: 10px;
+    font-family: topazplus;
 }
 
-
-.container div.navbar{
-  background-color: #220638;
-  grid-area: navbar;
+.container div.navbar {
+    background-color: #220638;
+    grid-area: navbar;
 }
 
-.container div.left{
-  grid-area: left;
+.container div.left {
+    grid-area: left;
 }
 
-.container div.right{
-  grid-area: right;
+.container div.right {
+    grid-area: right;
 }
 
-.container div.footer{
-  grid-area: footer;
-  text-align: center;
+.container div.footer {
+    grid-area: footer;
+    text-align: center;
+}
+
+/* Hover animation inspired by https://ianlunn.github.io/Hover/ */
+
+.hover_bounce:hover {
+    transition: transform 0.3s ease-out;
+    transform: scale(0.9);
+}
+
+.hover_bounce {
+    transition: transform 0.3s ease-out;
+    transform: scale(1);
+}
+
+button:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+img {
+    /* To make not highlightable */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.circle-image {
+    clip-path: circle(50%);
+    object-fit: cover;
 }

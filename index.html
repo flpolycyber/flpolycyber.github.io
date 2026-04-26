@@ -1,99 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florida Poly Cyber Club</title>
-
-    <!-- preload CSS -->
-    <link rel="preload" href="/CSS/sidebar.css" as="style">
-    <link rel="preload" href="/CSS/sidebar_button.css" as="style">
-    <link rel="preload" href="/CSS/logo.css" as="style">
-    <link rel="preload" href="/CSS/glitch.css" as="style">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/CSS/main.css"/>
-
-    <!-- JS -->
-    <script type="module" src="/JS/main.js"></script>
-</head>
-<body>
-    <div class="matrix">
-        <span class="matrix-num" style="left: 1%; animation-delay: 0.1s;">1</span>
-        <span class="matrix-num" style="left: 2%; animation-delay: 3.2s;">10</span>
-        <span class="matrix-num" style="left: 7%; animation-delay: 1.1s;">0</span>
-        <span class="matrix-num" style="left: 4%; animation-delay: 0.6s;">101</span>
-        <span class="matrix-num" style="left: 13%; animation-delay: 3.1s;">0</span>
-        <span class="matrix-num" style="left: 11%; animation-delay: 0.8s;">101</span>
-        <span class="matrix-num" style="left: 16%; animation-delay: 2.1s;">01</span>
-        <span class="matrix-num" style="left: 20%; animation-delay: 0.1s;">1</span>
-        <span class="matrix-num" style="left: 27%; animation-delay: 0.1s;">00 0</span>
-        <span class="matrix-num" style="left: 31%; animation-delay: 0.6s;">10</span>
-        <span class="matrix-num" style="left: 38%; animation-delay: 1.1s;">11  1   1</span>
-        <span class="matrix-num" style="left: 42%; animation-delay: 2.7s;">100</span>
-        <span class="matrix-num" style="left: 47%; animation-delay: 0.7s;">0 1</span>
-        <span class="matrix-num" style="left: 51%; animation-delay: 2.1s;">1</span>
-        <span class="matrix-num" style="left: 53%; animation-delay: 0.1s;">10  011 1</span>
-        <span class="matrix-num" style="left: 55%; animation-delay: 3.1s;">001</span>
-        <span class="matrix-num" style="left: 60%; animation-delay: 0.4s;">00   01</span>
-        <span class="matrix-num" style="left: 66%; animation-delay: 0.1s;">1</span>
-        <span class="matrix-num" style="left: 74%; animation-delay: 0.3s;">0 0 11</span>
-        <span class="matrix-num" style="left: 78%; animation-delay: 1.8s;">11</span>
-        <span class="matrix-num" style="left: 84%; animation-delay: 3.0s;">1</span>
-        <span class="matrix-num" style="left: 89%; animation-delay: 2.4s;">0</span>
-        <span class="matrix-num" style="left: 92%; animation-delay: 1.3s;">01 0 1</span>
-        <span class="matrix-num" style="left: 99%; animation-delay: 0.1s;">1</span>
-        <span class="matrix-num" style="left: 98%; animation-delay: 3.1s;">111</span>
-    </div>
-
-      <div class="content">
-          <div class="pgtitle"><h1>Florida Poly Cybersecurity</h1></div>
-          <div class="container">
-              <div class="navbar"><h1></h1></div>
-              <div class="left"><h2>About Us</h2></div>
-              <div class="right"><h2>Meeting Information</h2>
-              Meetings are held in IST-1028<br><br>
-              <b><u>Meeting Dates:</u></b><br>
-              General Meetings: Mondays @ 5:30pm<br>
-              Defensive Meetings: Wednesdays @ 5:30pm<br>
-              Offensive Meetings: Fridays @ 5:30pm
-              </div>
-              <div class="footer"><h3>feet</h3></div>
-          </div>
-      </div>
-
-
-    
-
-    <button class="sidebar-button" id="sidebarToggle" aria-label="Toggle sidebar">
-        <object id="sidebarSVG" type="image/svg+xml" data="/assets/retro_line.svg"></object>
-    </button>
-
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-inner">
-
-            <div class="logo-wrap">
-                <div class="logo-hex-underline">
-                    <a href="/" class="logo-hex" title="Florida Poly Cyber Club">
-                        <object id="logo" type="image/svg+xml" data="/assets/logo.svg"></object>
-                    </a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Florida Poly Cyber Club</title>
+        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <!-- preload CSS -->
+        <link rel="preload" href="/CSS/sidebar.css" as="style">
+        <link rel="preload" href="/CSS/sidebar_button.css" as="style">
+        <link rel="preload" href="/CSS/logo.css" as="style">
+        <link rel="preload" href="/CSS/glitch.css" as="style">
+        <link rel="preload" href="/CSS/connected.css" as="style">
+        <link rel="preload" href="/CSS/leader.css" as="style">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/CSS/main.css" />
+        <!-- JS -->
+        <script type="module" src="/JS/main.js"></script>
+    </head>
+    <body>
+        <div class="matrix">
+            <span class="matrix-num" style="left: 1%; animation-delay: 0.1s;">1</span>
+            <span class="matrix-num" style="left: 2%; animation-delay: 3.2s;">10</span>
+            <span class="matrix-num" style="left: 7%; animation-delay: 1.1s;">0</span>
+            <span class="matrix-num" style="left: 4%; animation-delay: 0.6s;">101</span>
+            <span class="matrix-num" style="left: 13%; animation-delay: 3.1s;">0</span>
+            <span class="matrix-num" style="left: 11%; animation-delay: 0.8s;">101</span>
+            <span class="matrix-num" style="left: 16%; animation-delay: 2.1s;">01</span>
+            <span class="matrix-num" style="left: 20%; animation-delay: 0.1s;">1</span>
+            <span class="matrix-num" style="left: 27%; animation-delay: 0.1s;">00 0</span>
+            <span class="matrix-num" style="left: 31%; animation-delay: 0.6s;">10</span>
+            <span class="matrix-num" style="left: 38%; animation-delay: 1.1s;">11 1 1</span>
+            <span class="matrix-num" style="left: 42%; animation-delay: 2.7s;">100</span>
+            <span class="matrix-num" style="left: 47%; animation-delay: 0.7s;">0 1</span>
+            <span class="matrix-num" style="left: 51%; animation-delay: 2.1s;">1</span>
+            <span class="matrix-num" style="left: 53%; animation-delay: 0.1s;">10 011 1</span>
+            <span class="matrix-num" style="left: 55%; animation-delay: 3.1s;">001</span>
+            <span class="matrix-num" style="left: 60%; animation-delay: 0.4s;">00 01</span>
+            <span class="matrix-num" style="left: 66%; animation-delay: 0.1s;">1</span>
+            <span class="matrix-num" style="left: 74%; animation-delay: 0.3s;">0 0 11</span>
+            <span class="matrix-num" style="left: 78%; animation-delay: 1.8s;">11</span>
+            <span class="matrix-num" style="left: 84%; animation-delay: 3.0s;">1</span>
+            <span class="matrix-num" style="left: 89%; animation-delay: 2.4s;">0</span>
+            <span class="matrix-num" style="left: 92%; animation-delay: 1.3s;">01 0 1</span>
+            <span class="matrix-num" style="left: 99%; animation-delay: 0.1s;">1</span>
+            <span class="matrix-num" style="left: 98%; animation-delay: 3.1s;">111</span>
+        </div>
+        <div class="content">
+            <div class="pgtitle"><h1>Florida Poly Cybersecurity</h1></div>
+            <div class="container">
+                <div class="navbar">
+                    <h1></h1>
+                </div>
+                <div class="left">
+                    <h2>About Us</h2>
+                </div>
+                <div class="right">
+                    <h2>Meeting Information</h2> Meetings are held in IST-1028 <br>
+                    <br>
+                    <b>
+                        <u>Meeting Dates:</u>
+                    </b>
+                    <br> General Meetings: Mondays @ 5:30pm <br> Defensive Meetings: Wednesdays @ 5:30pm <br> Offensive Meetings: Fridays @ 5:30pm
+                </div>
+                <div class="footer">
+                    <h3>feet👅🦶</h3>
                 </div>
             </div>
-
-
-            <ul class="ul-nav">
-                <li class="li-nav glitch"><a href="mission.html" class="nav-link" >Mission</a></li>
-                <li class="li-nav glitch"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="li-nav glitch"><a href="calendar.html" class="nav-link">Calendar</a></li>
-                <li class="li-nav glitch"><a href="events.html" class="nav-link">Events</a></li>
-                <li class="li-nav glitch"><a href="wiki.html" class="nav-link">Wiki</a></li>
-                <li class="li-nav glitch"><a href="social-media.html" class="nav-link">Social Media</a></li>
-            </ul>
         </div>
-        
-    </nav>
+        <div class="stay_connected">
+            <div class="fuchsia-group">
+                <h1>Stay Connected</h1>
+            </div>
+            <div class="connected_row ">
+                <form class="join parent-box" id="form_contact">
+                    <div class="fuchsia-group">
+                    <h2> Contact Us </h2>
+                    </div>
+                    <div class="fuchsia-group">
+                    <label for="contact_name"><h3> Name </h3></label>
+                    <input class="connect_input" id="contact_name" type="text" placeholder="Name" title="Name" name="Name" required>
+                    </div>
+                    <div class="fuchsia-group">
+                    <label for="contact_email"><h3> Email </h3></label>
+                    <input class="connect_input" id="contact_email" type="email" placeholder="youremail@cyber.com" title="Email" name="Email" required>
+                    </div>
+                    <div class="fuchsia-group">
+                    <label for="contact_message"><h3> Message </h3></label>
+                    </div>
+                    <textarea class="connect_input" id="contact_message" rows="4" cols="120" placeholder="Message..." title="Message" name="Message" required></textarea>
+                    <button id="form_contact_button" type="submit" value="Send" class="retro_button connect_input" title="Send">Send</button>
+                </form>
+                <!-- https://pixelartvillage.com/ used to convert PNGs to pixel art-->
+                <div class="grid_container">
+                    <div class="fuchsia-group">
+                    <h2> How to Join </h2>
+                    </div>
+                    <div class="grid4x4">
+                        <div class="grid_item">
+                            <div class="fuchsia-group">
+                            <h3> Involve </h3>
+                            </div>
+                            <a href="https://floridapoly.presence.io/organization/cybersecurity-club" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce involve_img" src="/assets/involve_8bit.png" title="Involve">
+                            </a>
+                        </div>
+                        <div class="grid_item">
+                            <div class="fuchsia-group">
+                            <h3> Discord </h3>
+                            </div>
+                            <a href="https://discord.gg/AkfMMtyXq4" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce discord_img" src="/assets/discord_8bit.png" title="Discord">
+                            </a>
+                        </div>
+                        <div class="grid_item">
+                            <div class="fuchsia-group">
+                            <h3> Instagram </h3>
+                            </div>
+                            <a href="https://www.instagram.com/flpolycyberclub/" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce instagram_img" src="/assets/instagram_8bit.png" title="Instagram">
+                            </a>
+                        </div>
+                        <div class="grid_item">
+                            <div class="fuchsia-group">
+                            <h3> GitHub </h3>
+                            </div>
+                            <a href="https://github.com/flpolycyber" target="_blank" rel="noopener noreferrer">
+                                <img class="app_icon hover_bounce github_img" src="/assets/github_8bit.png" title="GitHub">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</body>
+
+        <!-- leaders div is dynamlly injected-->
+        <div class="leader_header"> 
+            <h1>Meet our Team</h1>
+            <div id="leaders" class="leader_container">
+                <canvas id="packetCanvas"></canvas>
+                <img src="/assets/router.png" class="corner" id="top-left" title="click me">
+                <img src="/assets/router.png" class="corner" id="top-right" title="click me">
+                <img src="/assets/router.png" class="corner" id="bottom-left" title="click me">
+                <img src="/assets/router.png" class="corner" id="bottom-right" title="click me">
+            </div>
+        </div>
+
+        <button class="sidebar-button hover_bounce" id="sidebarToggle" aria-label="Toggle sidebar">
+            <object id="sidebarSVG" type="image/svg+xml" data="/assets/retro_line.svg"></object>
+        </button>
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <div class="logo-wrap">
+                    <div class="logo-hex-underline hover_bounce">
+                        <a href="/" class="logo-hex" title="Florida Poly Cyber Club">
+                            <object id="logo" type="image/svg+xml" data="/assets/logo.svg"></object>
+                        </a>
+                    </div>
+                </div>
+                <ul class="ul-nav">
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="mission.html" class="nav-link">Mission</a>
+                    </li>
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="calendar.html" class="nav-link">Calendar</a>
+                    </li>
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="events.html" class="nav-link">Events</a>
+                    </li>
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="wiki.html" class="nav-link">Wiki</a>
+                    </li>
+                    <li class="li-nav glitch hover_bounce">
+                        <a href="social-media.html" class="nav-link">Social Media</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </body>
 </html>
-
-

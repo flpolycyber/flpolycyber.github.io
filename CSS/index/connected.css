@@ -1,39 +1,37 @@
-.stay_connected {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.stay_connected{
+    max-width: var(--max_width);
+    margin: auto;
+    display: block;
 }
 
-.stay_connected * {
+.stay_connected, .retro_button, .connect_input {
     color: aquamarine;
     font-family: topazplus;
     text-transform: uppercase;
 }
 
 .connected_row {
-    display: flex;
-    flex-direction: row;
-    gap: 10vw;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(225px, 30%));
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    gap: 10px;
+    align-items: start;
 }
 
-.join {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+.contact_us {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    justify-content: center;
+    place-items: center;
 }
 
-.join * {
-    padding: 2px;
-}
-
-.join textarea{
+.contact_us textarea{
     resize: vertical;
 }
 
 .connect_input {
-    width: calc(20vw + 20vh);
+    width: 100%;
     border-radius: 3px;
     overflow: hidden;
     object-fit: cover;
@@ -41,9 +39,10 @@
     text-transform: none;
 }
 
-
 .app_icon {
-    width: calc(5vw + 5vh);
+    width: var(--small_button_size);
+    margin: auto;
+    display: block;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 22.37%;
@@ -52,24 +51,17 @@
     object-fit: cover;
 }
 
-.grid_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-}
-
-.grid4x4 {
+.how_to_join_container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2vw;
+    justify-content: center;
+    place-items: center;
 }
 
-.grid_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.social_media_container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    column-gap: 20px;
 }
 
 /* Inspired by https://www.framer.com/marketplace/components/retro-button/ */
@@ -107,14 +99,12 @@
     border: 3px solid hsl(345.63, 63.96%, 43.53%);
 }
 
-.fuchsia-group:hover h3, .fuchsia-group:hover h2, .fuchsia-group:hover h1 {
+.fuchsia-texthover:hover :nth-child(1) {
     color: Fuchsia;
 }
 
-/* Optional: Make the group take up the full width */
-.fuchsia-group {
+.fuchsia-texthover {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    place-items: center;
 }

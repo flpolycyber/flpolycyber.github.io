@@ -5,54 +5,39 @@ const box = document.getElementById('leaders');
 
 const canvas = document.getElementById('packetCanvas');
 const ctx = canvas.getContext("2d");
-ctx.fillStyle = "SpringGreen"; // never changed to a new color
 
-function attachHoverOnlyAnimatedWebp(item, imgElement, animatedSrc) {
-    let stillSrc = null;
-    let replayToggle = 0;
-    const replaySources = [`${animatedSrc}?play=0`, `${animatedSrc}?play=1`];
+function resizeCanvas() {
+    const displayWidth = canvas.clientWidth;
+    const displayHeight = canvas.clientHeight;
+    const dpr = window.devicePixelRatio || 1;
 
-    const sourceImage = new Image();
-    sourceImage.decoding = 'sync';
+    if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+        
+        ctx.scale(dpr, dpr);
+    }
+}
 
-    sourceImage.addEventListener('load', () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = sourceImage.naturalWidth;
-        canvas.height = sourceImage.naturalHeight;
+const resizeObserver = new ResizeObserver(() => resizeCanvas());
+resizeObserver.observe(canvas);
+resizeCanvas();
 
-        const context = canvas.getContext('2d');
-        if (!context) {
-            imgElement.src = animatedSrc;
-            return;
-        }
-
-        context.drawImage(sourceImage, 0, 0);
-        stillSrc = canvas.toDataURL('image/png');
-        imgElement.src = stillSrc;
+// inserting the elements
+function attachHoverAnimation(video, container, videoSrc) {    
+    video.src = videoSrc;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.className = 'leader_pic';
+    
+    container.addEventListener('mouseenter', () => video.play());
+    container.addEventListener('mouseleave', () => {
+        video.pause();
+        // video.currentTime = 0; // Optional: Resets to start frame
     });
 
-    sourceImage.addEventListener('error', () => {
-        imgElement.src = animatedSrc;
-    });
-
-    sourceImage.src = animatedSrc;
-
-    const playAnimation = () => {
-        replayToggle = replayToggle === 0 ? 1 : 0;
-        imgElement.src = replaySources[replayToggle];
-    };
-
-    const pauseAnimation = () => {
-        if (stillSrc) {
-            imgElement.src = stillSrc;
-        }
-    };
-
-    item.addEventListener('mouseenter', playAnimation);
-    item.addEventListener('focus', playAnimation);
-    item.addEventListener('mouseleave', pauseAnimation);
-    item.addEventListener('blur', pauseAnimation);
-    imgElement.setAttribute('loading', 'lazy');
 }
 
 for (const leader of leaders) {
@@ -67,25 +52,27 @@ for (const leader of leaders) {
     item.style.color = color;
 
     const posEle = document.createElement("h3");
-    const picEle = document.createElement("img");
+    const vidEle = document.createElement("video");
     const nameEle = document.createElement("h5");
 
     posEle.innerText = position;
     posEle.className = 'leaderEle';
 
-    picEle.className = 'leader_pic';
-    attachHoverOnlyAnimatedWebp(item, picEle, pic);
+    attachHoverAnimation(vidEle, item, pic);
 
     nameEle.innerText = name;
     nameEle.className = 'leaderEle';
 
     item.className = 'leader_item';
     item.appendChild(posEle);
-    item.appendChild(picEle);
+    item.appendChild(vidEle);
     item.appendChild(nameEle);
 
     element.appendChild(item);
 }
+
+
+// making the routers fire
 
 let pageVisible = !document.hidden;
 document.addEventListener('visibilitychange', () => {
@@ -114,9 +101,12 @@ const bounceOptions = {
     easing: 'ease-out'
 };
 
-const PACKETSIZE = 4; //pixels
-const minShot = 1000;
-const maxShot = 3000;
+const PACKETSIZE = 8; //pixels
+const PACKETWIDTH = PACKETSIZE * 2;
+
+const minFreqShot = 1024; // ms
+const maxFreqShot = 2018;
+const VELOCITY = 512; // pixels/second
 
 class Router {
     constructor(id, istop, isleft) {
@@ -133,8 +123,8 @@ class Router {
         this.isleft = isleft;
 
         // float to 0-1
-        this.path1 = [];
-        this.path2 = [];
+        this.path1 = []; // verticle
+        this.path2 = []; // horizontal
 
         el.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -159,7 +149,7 @@ class Router {
 
 
     #scheduleNext() {
-        const delay = Math.floor(Math.random() * (maxShot - minShot + 1)) + minShot;
+        const delay = Math.floor(Math.random() * (maxFreqShot - minFreqShot + 1)) + minFreqShot;
 
         setTimeout(() => {
             // Only do work when the page and section are actually visible
@@ -171,29 +161,36 @@ class Router {
     }
 
     update(deltatime) {
+        const currentWidth = canvas.clientWidth;
+        const currentHeight = canvas.clientHeight;
+
+        // emulating a stack 
+        while(this.path1.length && this.path1[this.path1.length - 1] >= currentHeight){
+            this.path1.pop();
+        }
+
+        while(this.path2.length && this.path2[this.path2.length - 1] >= currentWidth){
+            this.path2.pop();
+        }
+
+        deltatime *= VELOCITY;
+
+        // draw each path
         for (let i = 0; i < this.path1.length; i++) {
             this.path1[i] += deltatime;
-            if (this.path1[i] >= 1.0) {
-                this.path1.splice(i, 1);
-                continue;
-            }
-            this.draw(this.path1[i], true);
+            this.draw(this.path1[i], true); // verticle
         }
 
         for (let i = 0; i < this.path2.length; i++) {
             this.path2[i] += deltatime;
-            if (this.path2[i] >= 1.0) {
-                this.path2.splice(i, 1);
-                continue;
-            }
-            this.draw(this.path2[i], false);
+            this.draw(this.path2[i], false); // horizontal
         }
     }
 
-    draw(percent, isVert) {
+    draw(distance, isVert) {
         // Keep packets inside canvas bounds
-        const rightX = Math.max(0, canvas.width - PACKETSIZE);
-        const bottomY = Math.max(0, canvas.height - PACKETSIZE);
+        const rightX = Math.max(0, canvas.clientWidth - PACKETSIZE);
+        const bottomY = Math.max(0, canvas.clientHeight - PACKETSIZE);
 
         let x = rightX;
         let y = bottomY;
@@ -201,22 +198,23 @@ class Router {
         if (isVert) {
             // Vertical travel on left or right edge
             x = this.isleft ? 0 : rightX;
-            y = (this.istop ? percent : (1 - percent)) * bottomY;
+            y = (this.istop ? distance : (bottomY - distance));
+            ctx.fillRect(x, y, PACKETSIZE, PACKETWIDTH);
         } else {
             // Horizontal travel on top or bottom edge
             y = this.istop ? 0 : bottomY;
-            x = (this.isleft ? percent : (1 - percent)) * rightX;
+            x = (this.isleft ? distance : (rightX - distance));
+            ctx.fillRect(x, y, PACKETWIDTH, PACKETSIZE);
         }
 
-        ctx.fillRect(x, y, PACKETSIZE, PACKETSIZE);
     }
 }
 
 const routers = [
-    new Router('top-left', true, true),
-    new Router('top-right', true, false),
-    new Router('bottom-left', false, true),
-    new Router('bottom-right', false, false)
+    new Router('router-top-left', true, true),
+    new Router('router-top-right', true, false),
+    new Router('router-bottom-left', false, true),
+    new Router('router-bottom-right', false, false)
 ]
 
 let lastTime = 0;
@@ -225,7 +223,9 @@ function animate(timestamp) {
 
     const deltaTime = Math.min((timestamp - lastTime) / 1000, 0.1);
     lastTime = timestamp;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+
+    ctx.fillStyle = "SpringGreen";
 
     for (const router of routers) {
         router.update(deltaTime)

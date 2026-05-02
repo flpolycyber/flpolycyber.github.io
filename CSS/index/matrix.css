@@ -6,16 +6,16 @@
     }
 }
 
-@-webkit-keyframes glow {
+/* Changed from  text-shadow to drop-shadow, due to being extreemly laggy on Chrome
+    https://webcode.tools/css-generator/drop-shadow
+    ARGS: horizontal offset, vertical offset, blur radius, and color
+*/
+@keyframes glow-filter {
     from {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #009fdf,
-            0 0 40px #009fdf, 0 0 50px #009fdf, 0 0 60px #009fdf,
-            0 0 70px #009fdf;
+        filter: drop-shadow(0 0 10px #009fdf) drop-shadow(0 0 20px #009fdf);
     }
     to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #009fdf, 0 0 40px #4ee7f2,
-            0 0 50px #4ee7f2, 0 0 60px #4ee7f2, 0 0 70px #4ee7f2,
-            0 0 80px #4ee7f2;
+        filter: drop-shadow(0 0 20px #4ee7f2) drop-shadow(0 0 30px #4ee7f2);
     }
 }
 
@@ -42,10 +42,9 @@
 
 .pgtitle {
     color: #50298a;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
+    animation: glow-filter 1s ease-in-out infinite alternate;
     font-size: 25px;
     text-align: center;
     font-family: topazplus;
+    /* text-transform: uppercase; */
 }

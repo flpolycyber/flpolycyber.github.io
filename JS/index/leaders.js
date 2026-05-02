@@ -1,4 +1,4 @@
-import leaders from '../store/leaders.js';
+import leaders from '../../store/leaders.js';
 
 const element = document.getElementById('leaders');
 const box = document.getElementById('leaders');

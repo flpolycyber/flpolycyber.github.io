@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -125 700 800">
+<svg id="hamburger-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-90 -200 840 960">
   <defs>
     <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -23,19 +22,23 @@
         transition: transform 1.5s cubic-bezier(0.4, 0.6, 0.6, 0.4);
       }
 
-      :root.active #line_1 {
+      :root.active #line_1,
+      svg.active #line_1 {
         transform: translateY(250px) rotate(-45deg) rotateY(-180deg) rotateZ(360deg);
       }
 
-      :root.active #line_2 {
+      :root.active #line_2,
+      svg.active #line_2 {
         transform: translateY(100px) rotate(45deg) rotateY(-180deg) rotateZ(180deg);
       }
 
-      :root.active #line_3 {
+      :root.active #line_3,
+      svg.active #line_3 {
         transform: translateY(-50px) rotate(-45deg) rotateY(180deg) rotateZ(180deg);
       }
       
-      :root.active #line_4 {
+      :root.active #line_4,
+      svg.active #line_4 {
         transform: translateY(-200px) rotate(45deg) rotateY(180deg) rotateZ(360deg);
       }
     </style>

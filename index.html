@@ -4,18 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Florida Poly Cyber Club</title>
+
+        <!-- favicon -->
         <link rel="icon" type="image/png" href="/assets/favicon.png">
-        <!-- preload CSS -->
-        <link rel="preload" href="/CSS/sidebar.css" as="style">
-        <link rel="preload" href="/CSS/sidebar_button.css" as="style">
-        <link rel="preload" href="/CSS/logo.css" as="style">
-        <link rel="preload" href="/CSS/glitch.css" as="style">
-        <link rel="preload" href="/CSS/connected.css" as="style">
-        <link rel="preload" href="/CSS/leader.css" as="style">
+
         <!-- CSS -->
+        <link rel="stylesheet" href="/CSS/SPA/sidebar.css">
+        <link rel="stylesheet" href="/CSS/SPA/hamburger.css">
+        <link rel="stylesheet" href="/CSS/SPA/logo.css">
+        <link rel="stylesheet" href="/CSS/SPA/glitch.css">
+
+        <link rel="stylesheet" href="/CSS/index/connected.css">
+        <link rel="stylesheet" href="/CSS/index/leader.css">
+        <link rel="stylesheet" href="/CSS/index/matrix.css">
+        
         <link rel="stylesheet" href="/CSS/main.css" />
+
         <!-- JS -->
-        <script type="module" src="/JS/main.js"></script>
+        <script type="module" src="/JS/index/leaders.js"></script>
+        <script type="module" src="/JS/index/message_form.js"></script>
+
+        <script type="module" src="/JS/SPA/logo.js"></script>
+        <script type="module" src="/JS/SPA/sidebar.js"></script>
     </head>
     <body>
         <div class="matrix">
@@ -78,11 +88,11 @@
                     </div>
                     <div class="fuchsia-group">
                     <label for="contact_name"><h3> Name </h3></label>
-                    <input class="connect_input" id="contact_name" type="text" placeholder="Name" title="Name" name="Name" required>
+                    <input class="connect_input" id="contact_name" type="text" placeholder="Name" title="Name" name="Name" autocomplete="name" required>
                     </div>
                     <div class="fuchsia-group">
                     <label for="contact_email"><h3> Email </h3></label>
-                    <input class="connect_input" id="contact_email" type="email" placeholder="youremail@cyber.com" title="Email" name="Email" required>
+                    <input class="connect_input" id="contact_email" type="email" placeholder="youremail@cyber.com" title="Email" name="Email" autocomplete="email" required>
                     </div>
                     <div class="fuchsia-group">
                     <label for="contact_message"><h3> Message </h3></label>
@@ -101,7 +111,7 @@
                             <h3> Involve </h3>
                             </div>
                             <a href="https://floridapoly.presence.io/organization/cybersecurity-club" target="_blank" rel="noopener noreferrer">
-                                <img class="app_icon hover_bounce involve_img" src="/assets/involve_8bit.png" title="Involve">
+                                <img class="app_icon hover_bounce involve_img" src="/assets/connected/involve_8bit.png" title="Involve">
                             </a>
                         </div>
                         <div class="grid_item">
@@ -109,7 +119,7 @@
                             <h3> Discord </h3>
                             </div>
                             <a href="https://discord.gg/AkfMMtyXq4" target="_blank" rel="noopener noreferrer">
-                                <img class="app_icon hover_bounce discord_img" src="/assets/discord_8bit.png" title="Discord">
+                                <img class="app_icon hover_bounce discord_img" src="/assets/connected/discord_8bit.png" title="Discord">
                             </a>
                         </div>
                         <div class="grid_item">
@@ -117,7 +127,7 @@
                             <h3> Instagram </h3>
                             </div>
                             <a href="https://www.instagram.com/flpolycyberclub/" target="_blank" rel="noopener noreferrer">
-                                <img class="app_icon hover_bounce instagram_img" src="/assets/instagram_8bit.png" title="Instagram">
+                                <img class="app_icon hover_bounce instagram_img" src="/assets/connected/instagram_8bit.png" title="Instagram">
                             </a>
                         </div>
                         <div class="grid_item">
@@ -125,7 +135,7 @@
                             <h3> GitHub </h3>
                             </div>
                             <a href="https://github.com/flpolycyber" target="_blank" rel="noopener noreferrer">
-                                <img class="app_icon hover_bounce github_img" src="/assets/github_8bit.png" title="GitHub">
+                                <img class="app_icon hover_bounce github_img" src="/assets/connected/github_8bit.png" title="GitHub">
                             </a>
                         </div>
                     </div>
@@ -139,22 +149,22 @@
             <h1>Meet our Team</h1>
             <div id="leaders" class="leader_container">
                 <canvas id="packetCanvas"></canvas>
-                <img src="/assets/router.png" class="corner" id="top-left" title="click me">
-                <img src="/assets/router.png" class="corner" id="top-right" title="click me">
-                <img src="/assets/router.png" class="corner" id="bottom-left" title="click me">
-                <img src="/assets/router.png" class="corner" id="bottom-right" title="click me">
+                <img src="/assets/leader/router.png" class="corner" id="top-left" title="click me">
+                <img src="/assets/leader/router.png" class="corner" id="top-right" title="click me">
+                <img src="/assets/leader/router.png" class="corner" id="bottom-left" title="click me">
+                <img src="/assets/leader/router.png" class="corner" id="bottom-right" title="click me">
             </div>
         </div>
 
         <button class="sidebar-button hover_bounce" id="sidebarToggle" aria-label="Toggle sidebar">
-            <object id="sidebarSVG" type="image/svg+xml" data="/assets/retro_line.svg"></object>
+            <!-- hamburger SVG is dynamically inserted -->
         </button>
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-inner">
                 <div class="logo-wrap">
-                    <div class="logo-hex-underline hover_bounce">
-                        <a href="/" class="logo-hex" title="Florida Poly Cyber Club">
-                            <object id="logo" type="image/svg+xml" data="/assets/logo.svg"></object>
+                    <div class="logo-hex-underline">
+                        <a href="/" class="logo-hex" id="sidebar_logo" title="Florida Poly Cyber Club">
+                            <!-- Logo SVG is dynamically inserted -->
                         </a>
                     </div>
                 </div>

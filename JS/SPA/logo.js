@@ -1,26 +1,26 @@
 // to animate the logo when hovered
 // SVG follow cursor using CSS and JS https://dev.to/anomaly3108/make-svg-follow-cursor-using-css-and-js-2okp
-const doc = document.querySelector('.logo-wrap');
-const obj = document.querySelector('#logo');
 
+fetch('/assets/sidebar/logo.svg')
+  .then(response => response.text())
+  .then(svgString => {
+    const parent = document.getElementById('sidebar_logo');
 
-function logoEventListener() {
-    const svgDoc = obj.contentDocument;
-    const clipCircle = svgDoc.querySelector('#circleclip');
-    const svgElement = svgDoc.documentElement;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgString, 'image/svg+xml');
+    const svgElement = doc.documentElement;
+    parent.appendChild(svgElement);
 
-    // Chromium first-load race: <object> tag's load event can fire before the SVG's internal DOM loads
-    if (!svgElement.viewBox || !svgElement.viewBox.baseVal) {
-        requestAnimationFrame(logoEventListener);
-        return;
-    }
+    const clipCircle = svgElement.getElementById('circleclip');
 
+    svgElement.setAttribute('width', '320');
+    svgElement.setAttribute('height', '320');
     let ticket;
     let mouseX = 0;
     let mouseY = 0;
 
     const updatePosition = () => {
-        const rect = obj.getBoundingClientRect();
+        const rect = parent.getBoundingClientRect();
         const viewBox = svgElement.viewBox.baseVal;
 
         const scaleX = viewBox.width / rect.width;
@@ -35,7 +35,7 @@ function logoEventListener() {
         ticket = null;
     };
 
-    doc.addEventListener('mousemove', (e) => {
+    svgElement.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
@@ -44,15 +44,11 @@ function logoEventListener() {
         }
     });
 
-    doc.addEventListener('mouseleave', () => {
+    svgElement.addEventListener('mouseleave', () => {
         clipCircle.setAttribute('cx', 676767.676767);
         clipCircle.setAttribute('cy', 676767.676767);
     });
-}
 
-// Firefox fix: JS can fire before the SVG loads
-if (obj.contentDocument && obj.contentDocument.readyState === 'complete') {
-    logoEventListener();
-} else {
-    obj.addEventListener('load', logoEventListener);
-}
+
+  })
+  .catch(error => console.error(error));

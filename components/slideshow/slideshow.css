@@ -1,0 +1,92 @@
+/* https://www.w3schools.com/howto/howto_js_slideshow.asp */
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+#prev, #next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 24px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#prev:hover,
+#next:hover {
+    background-color: rgba(155, 155, 155, 0.8);
+}
+
+/* Number text (1/N etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 24px;
+    padding: 8px 24px;
+    position: absolute;
+    top: 0;
+    font-family: featuremono;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 20px;
+    background-color: #bbb;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.6s ease;
+    font-family: featuremono;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.slideimg {
+    width: 50%;
+    max-width: 400px;
+}
+
+.center{
+    display: grid;
+    place-items: center;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .prev, .next, .text {
+        font-size: 11px;
+    }
+}

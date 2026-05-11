@@ -35,7 +35,7 @@ function attachHoverAnimation(video, container, videoSrc) {
     container.addEventListener('mouseenter', () => video.play());
     container.addEventListener('mouseleave', () => {
         video.pause();
-        // video.currentTime = 0; // Optional: Resets to start frame
+        video.currentTime = 0; // Optional: Resets to start frame
     });
 
 }

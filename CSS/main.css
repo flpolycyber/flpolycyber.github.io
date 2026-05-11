@@ -3,13 +3,19 @@ Global style sheet
 */
 
 
-/* 
-From https://github.com/rewtnull/amigafonts
-*/
+
+/* From https://github.com/rewtnull/amigafonts */
 @font-face {
     font-family: "topazplus";
     src: url("../fonts/topazplus500.ttf") format("truetype");
 }
+
+/* From https://befonts.com/feature-mono-font-family.html */
+@font-face {
+    font-family: "featuremono";
+    src: url("../fonts/featuremonogx.ttf") format("truetype");
+}
+
 
 
 /* https://www.w3schools.com/colors/colors_hsl.asp */

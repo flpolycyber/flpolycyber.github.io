@@ -2,8 +2,6 @@
 Global style sheet
 */
 
-
-
 /* From https://github.com/rewtnull/amigafonts */
 @font-face {
     font-family: "topazplus";
@@ -54,7 +52,6 @@ Global style sheet
     --grey: hsl(0, 0%, 50%);
     --black: hsl(0, 0%, 0%);
 
-
     --poly-purple: #4f1c82;
     --cyber-blue: #00a1e0;
     --pixel-purple: #b096df;
@@ -62,11 +59,15 @@ Global style sheet
     --tech-slate: #a7b4c3;
     --graphite-gray: #585f65;
 
-
     /* For clip-path: */
-    --corner-fold: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
-    --hex-cut: polygon(-50% 50%, 50% 100%, 150% 50%,50% 0);
-
+    --corner-fold: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%
+    );
+    --hex-cut: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
 
     --sidebar-width: 300px;
     --button-size: 60px;
@@ -80,9 +81,8 @@ body {
     background: var(--black);
 
     /* disables horizontal scrolling  */
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
-
 
 /* Hover animation inspired by https://ianlunn.github.io/Hover/ */
 
@@ -104,7 +104,8 @@ button:disabled {
     pointer-events: none;
 }
 
-img, video {
+img,
+video {
     /* To make not highlightable */
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -120,39 +121,38 @@ img, video {
 /* Based on https://www.tiny.cloud/blog/css-glitch-effect/ */
 
 .glitch:hover {
-  text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
-    0.025em 0.04em 0 var(--yellow);
-  animation: glitch 725ms infinite;
+    text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+        0.025em 0.04em 0 var(--yellow);
+    animation: glitch 725ms infinite;
 }
 
-
 @keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
-      0.025em 0.04em 0 var(--yellow);
-  }
-  15% {
-    text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
-      0.025em 0.04em 0 var(--yellow);
-  }
-  16% {
-    text-shadow: -0.05em -0.025em 0 var(--cyan), 0.025em 0.035em 0 var(--fuchsia),
-      -0.05em -0.05em 0 var(--yellow);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 var(--cyan), 0.025em 0.035em 0 var(--fuchsia),
-      -0.05em -0.05em 0 var(--yellow);
-  }
-  50% {
-    text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
-      0 -0.04em 0 var(--yellow);
-  }
-  99% {
-    text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
-      0 -0.04em 0 var(--yellow);
-  }
-  100% {
-    text-shadow: -0.05em 0 0 var(--cyan), -0.025em -0.04em 0 var(--fuchsia),
-      -0.04em -0.025em 0 var(--yellow);
-  }
+    0% {
+        text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+            0.025em 0.04em 0 var(--yellow);
+    }
+    15% {
+        text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+            0.025em 0.04em 0 var(--yellow);
+    }
+    16% {
+        text-shadow: -0.05em -0.025em 0 var(--cyan),
+            0.025em 0.035em 0 var(--fuchsia), -0.05em -0.05em 0 var(--yellow);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--cyan),
+            0.025em 0.035em 0 var(--fuchsia), -0.05em -0.05em 0 var(--yellow);
+    }
+    50% {
+        text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
+            0 -0.04em 0 var(--yellow);
+    }
+    99% {
+        text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
+            0 -0.04em 0 var(--yellow);
+    }
+    100% {
+        text-shadow: -0.05em 0 0 var(--cyan), -0.025em -0.04em 0 var(--fuchsia),
+            -0.04em -0.025em 0 var(--yellow);
+    }
 }

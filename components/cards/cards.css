@@ -1,0 +1,60 @@
+.list-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    font-family: featuremono;
+    color: black;
+}
+
+.cards{
+    width: 250px;
+    border: 5px solid var(--light-grey);
+    border-radius: 20px;
+    background: white;
+}
+
+.bg-img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.main-img{
+    width: 175px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.linebreak{
+    border-top: 3px solid;
+    width: 75%;
+    margin: none;
+}
+
+.name{
+    text-transform: capitalize;
+    text-align: center;
+    margin: 5px;
+    padding: 0px;
+    font-family: featuremono;
+
+}
+
+.desc{
+    margin: 5px;
+    opacity: 0.7;
+    font-family: featuremono;
+}
+
+.timecontainer{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    font-family: featuremono;
+}

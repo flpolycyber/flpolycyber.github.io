@@ -1,0 +1,89 @@
+
+/* 
+It would probably be better to use a HTMLCanvas with offscreen canvas over CSS
+ */
+.matrix {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: topazplus;
+    overflow: hidden;
+    background-color: black;
+}
+
+.matrix-num {
+    color: var(--indigo);
+    font-size: 15px;
+    position: absolute;
+    font-family: topazplus;
+    top: -50px;
+    animation: fall 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+
+.mainpage {
+    margin-top: clamp(100px, 30vh, 250px);   
+    margin-bottom: clamp(150px, 50vh, 400px); 
+}
+
+.maintitle{
+    font-size: 28px;
+    text-align: center;
+    font-family: topazplus;
+    /* text-transform: uppercase; */
+}
+
+.maintitle h1{
+    color: var(--dark-purple);
+    animation: glow-filter 1s ease-in-out infinite alternate;
+}
+
+/* Changed from  text-shadow to drop-shadow, due to being laggy on Chrome
+    https://webcode.tools/css-generator/drop-shadow
+    ARGS: horizontal offset, vertical offset, blur radius, and color
+*/
+@keyframes glow-filter {
+    from {
+        filter: drop-shadow(0 0 10px var(--cyan)) drop-shadow(0 0 20px var(--cyan));
+    }
+    to {
+        filter: drop-shadow(0 0 20px var(--cyan)) drop-shadow(0 0 30px var(--cyan));
+    }
+}
+
+.maintitle h3{
+    color: var(--gold);
+}
+
+.title_container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+}
+
+.title_button{
+    font-size: medium;
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 12px;
+    font-family: featuremono;
+    border-color: var(--cyan);
+    color: var(--cyan);
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.title_button:hover{
+    color: white;
+    background: var(--cyan);
+}

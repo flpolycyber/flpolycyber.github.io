@@ -5,6 +5,7 @@ const box = document.getElementById('leaders');
 
 const canvas = document.getElementById('packetCanvas');
 const ctx = canvas.getContext("2d");
+const springGreen = getComputedStyle(document.documentElement).getPropertyValue('--spring-green');
 
 function resizeCanvas() {
     const displayWidth = canvas.clientWidth;
@@ -40,8 +41,7 @@ function attachHoverAnimation(video, container, videoSrc) {
 
 }
 
-for (const leader of leaders) {
-    const position = leader["position"];
+for (const [position, leader] of Object.entries(leaders)) {
     const name = leader["name"];
     const color = leader["color"];
     const pic = leader["pic"];
@@ -192,8 +192,8 @@ class Router {
         const rightX = Math.max(0, canvas.clientWidth - PACKETSIZE);
         const bottomY = Math.max(0, canvas.clientHeight - PACKETSIZE);
 
-        let x = rightX;
-        let y = bottomY;
+        let x;
+        let y;
 
         if (isVert) {
             // Vertical travel on left or right edge
@@ -225,7 +225,7 @@ function animate(timestamp) {
     lastTime = timestamp;
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-    ctx.fillStyle = "SpringGreen";
+    ctx.fillStyle = springGreen;
 
     for (const router of routers) {
         router.update(deltaTime)

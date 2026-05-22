@@ -1,4 +1,4 @@
-import getResourceAsString from '../utils/fetchResource.js'
+import getResourceAsString from '/JS/utils/fetchResource.js'
 
 let sidebar_hidden = true;
 

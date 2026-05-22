@@ -14,8 +14,8 @@
       use {
         transform-box: fill-box;
         transform-origin: center center;
-        fill: hsl(183, 100%, 50%);
-        stroke: hsl(183, 100%, 50%);
+        fill: var(--cyan);
+        stroke: var(--cyan);
         stroke-width: 8; 
         stroke-linecap: round;
         filter: url(#neon-glow); 

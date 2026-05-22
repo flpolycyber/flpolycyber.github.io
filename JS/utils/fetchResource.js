@@ -5,8 +5,7 @@ export default async function getResourceAsString(url) {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.text(); // Converts response body to string
-    return data;
+    return await response.text(); // Converts response body to string
 }
 
 // Usage

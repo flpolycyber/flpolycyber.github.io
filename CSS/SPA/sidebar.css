@@ -1,4 +1,70 @@
-/* Sidebar Navigation https://www.w3schools.com/howto/howto_js_sidenav.asp */
+/* Hamburger Icon Below
+to X transition from https://codepen.io/TheeBryanWhite/pen/KwdWQP */
+
+.sidebar-button {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 200;
+	width: var(--button-size);
+	height: var(--button-size);
+	background: var(--black);
+	border: 1px solid var(--tran-purple);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	padding: 0;
+	transition: box-shadow 0.3s ease;
+}
+
+#sidebarSVG {
+    display: block;
+    width: 80%;
+    height: 80%;
+    background: transparent; 
+    overflow: visible;
+	pointer-events: none;
+	will-change: transform;
+}
+
+
+/* Logo for the sidebar Below*/
+
+.logo-hex svg {
+	position: relative;
+	width: 6rem;
+	height: 6rem;
+	clip-path: var(--hex-cut);
+	background: var(--dark-purple);
+}
+
+.logo-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;	
+}
+.logo-hex {
+  	position: relative;
+  	display: inline-block;
+}
+
+#logo{
+	width: 100px;
+	height: 100px;
+	will-change: transform;
+}
+
+.logo-hex-underline:hover {
+	filter: drop-shadow(0 0 8px var(--tran-purple)) drop-shadow(0 0 20px var(--tran-purple));
+}
+
+
+
+/* Sidebar Navigation Below*/
 
 .sidebar {
 	position: fixed;
@@ -6,7 +72,7 @@
 	left: 0;
 	height: 100vh;
 	width: var(--sidebar-width);
-	background: var(--bg-body);
+	background: var(--black);
 	z-index: 100;
 	border-right: none;
 
@@ -17,7 +83,7 @@
 
 .sidebar.open {
 	transform: translateX(0);
-	border-right: 2px solid var(--border);
+	border-right: 2px solid var(--tran-purple);
 }
 
 .sidebar-inner {
@@ -58,7 +124,7 @@
 }
 
 .li-nav:hover::before, .sidebar-button:hover {
-	box-shadow: inset 0 0 12px var(--border), var(--glow-purple);
+	box-shadow: inset 0 0 12px var(--tran-purple), 0 0 8px var(--tran-purple), 0 0 20px var(--tran-purple);
 }
 
 

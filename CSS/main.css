@@ -52,13 +52,6 @@ Global style sheet
     --grey: hsl(0, 0%, 50%);
     --black: hsl(0, 0%, 0%);
 
-    --poly-purple: #4f1c82;
-    --cyber-blue: #00a1e0;
-    --pixel-purple: #b096df;
-    --python-plum: #2f1b4b;
-    --tech-slate: #a7b4c3;
-    --graphite-gray: #585f65;
-
     /* For clip-path: */
     --corner-fold: polygon(
         0 0,

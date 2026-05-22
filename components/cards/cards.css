@@ -1,16 +1,15 @@
-
-
 .list-container{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    font-family: featuremono !important;
+    font-family: featuremono;
     color: black;
 }
 
 .cards{
     width: 250px;
-    border: 5px solid;
+    border: 5px solid var(--light-grey);
     border-radius: 20px;
     background: white;
 }
@@ -27,9 +26,6 @@
     margin-right: auto;
 }
 
-.card-content{
-
-}
 
 .linebreak{
     border-top: 3px solid;
@@ -40,16 +36,16 @@
 .name{
     text-transform: capitalize;
     text-align: center;
-    margin: 0px;
+    margin: 5px;
     padding: 0px;
-    font-family: featuremono !important;
+    font-family: featuremono;
 
 }
 
 .desc{
     margin: 5px;
     opacity: 0.7;
-    font-family: featuremono !important;
+    font-family: featuremono;
 }
 
 .timecontainer{
@@ -60,5 +56,5 @@
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
-    font-family: featuremono !important;
+    font-family: featuremono;
 }

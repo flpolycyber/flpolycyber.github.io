@@ -3,24 +3,35 @@
 // <script type="module" src="/components/cards/cards.js"></script>
 // 
 //<cards-card>
-//     <data src="/assets/img.png" name="default name" time="Next Fall" bgcolor="grey">
+//     <data src="/assets/img.png" name="default name" time="Next Fall" color="grey">
 //         This is the description
 //     </data>
-//     <data src="/assets/img.png" name="default name 2" time="Next Fall" bgcolor="grey">
+//     <data src="/assets/img.png" name="default name 2" time="Next Fall" color="grey">
 //         This is the second description
 //     </data>
 // </cards-card>
 //
 // bgcolor: HTML color name
 
+import getResourceAsString from '/JS/utils/fetchResource.js';
+
+const sheet = new CSSStyleSheet();
+sheet.replaceSync(await getResourceAsString('/components/cards/cards.css'));
+
 
 class ListCards extends HTMLElement{
     constructor() {
         super();
+        this.shadow = this.attachShadow({ mode: 'open' });
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         this.data = Array.from(this.children);
+
+
+        this.shadow.adoptedStyleSheets = [sheet];
+
+
         this.render();
     }
 
@@ -49,7 +60,7 @@ class ListCards extends HTMLElement{
             `;
         }).join('');
 
-        this.innerHTML = `
+        this.shadow.innerHTML = `
             <div class="list-container">
                 ${cards}
             </div>

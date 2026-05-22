@@ -1,6 +1,5 @@
 // usage
 // <link rel="stylesheet" href="/components/slideshow/slideshow.css">
-// <script type="module" src="/components/slideshow/slideshow.js"></script>
 //
 // <slide-show durationMS="5000">
 //     <img alt="Involve" src="/assets/connected/involve_8bit.png">
@@ -9,9 +8,15 @@
 // 
 // duration is optional: default is 5000 ms
 
+import getResourceAsString from '/JS/utils/fetchResource.js';
+
+const sheet = new CSSStyleSheet();
+sheet.replaceSync(await getResourceAsString('/components/slideshow/slideshow.css'));
+
 class SlideShow extends HTMLElement {
     constructor() {
         super();
+        this.shadow = this.attachShadow({ mode: 'open' });
         this._slideIndex = 0;
         this.automove = true;
         this.slides = [];
@@ -19,13 +24,14 @@ class SlideShow extends HTMLElement {
         this._autoTimer = null;
     }
 
-    connectedCallback() {
+    async connectedCallback() {
+        this.shadow.adoptedStyleSheets = [sheet];
         const imgs = Array.from(this.querySelectorAll(':scope > img'));
 
         this.render(imgs);
 
-        this.slides = this.querySelectorAll(".myzlides");
-        this.dots = this.querySelectorAll(".zlidedot");
+        this.slides = this.shadow.querySelectorAll(".myzlides");
+        this.dots = this.shadow.querySelectorAll(".zlidedot");
         this.automove = true;
         this.slideIndex = 0;
         this.startAuto();
@@ -104,7 +110,7 @@ class SlideShow extends HTMLElement {
 
     render(imgs) {
         // Build the skeleton
-        this.innerHTML = `
+        this.shadow.innerHTML = `
         <div>
             <div class="zlidedots"></div>
 
@@ -115,9 +121,9 @@ class SlideShow extends HTMLElement {
         </div>
         `;
 
-        const dotsContainer = this.querySelector('.zlidedots');
-        const imgContainer = this.querySelector('.zlideimg-container');
-        const nextBtn = this.querySelector('#zlidenext');
+        const dotsContainer = this.shadow.querySelector('.zlidedots');
+        const imgContainer = this.shadow.querySelector('.zlideimg-container');
+        const nextBtn = this.shadow.querySelector('#zlidenext');
 
         imgs.forEach((img, index) => {
             const title = img.getAttribute('alt') || '';
@@ -148,7 +154,7 @@ class SlideShow extends HTMLElement {
             dotsContainer.appendChild(dot);
         });
 
-        this.querySelector('#zlideprev').addEventListener('click', () => this.plusSlides(-1));
+        this.shadow.querySelector('#zlideprev').addEventListener('click', () => this.plusSlides(-1));
         nextBtn.addEventListener('click', () => this.plusSlides(1));
     }
 }

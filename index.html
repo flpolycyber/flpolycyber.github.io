@@ -26,13 +26,11 @@
     <script type="module" src="/JS/SPA/sidebar.js"></script>
 
     <!-- web components -->
-    <link rel="stylesheet" href="/components/slideshow/slideshow.css">
     <script type="module" src="/components/slideshow/slideshow.js"></script>
     
     <link rel="stylesheet" href="/components/popup/popup.css">
     <script type="module" src="/components/popup/popup.js"></script>
 
-    <link rel="stylesheet" href="/components/cards/cards.css">
     <script type="module" src="/components/cards/cards.js"></script>
 </head>
 
@@ -85,44 +83,40 @@
             <div class="navbar">
                 <h1>About Us</h1>
             </div>
-            <div class="about_us_txt">
-                <h2>Who we are</h2>
-                We're a group of FPU students passionate about all things cybersecurity, both offensive and defensive. Whether you're a seasoned pro or just starting out, our club offers a welcoming space to learn, collaborate, and explore this exciting field.
-            </div>
+                <div class="about_us_txt">
+                    <h2>Who we are</h2>
+                    We're a group of FPU students passionate about all things cybersecurity, both offensive and defensive. 
+                    Whether you're a seasoned pro or just starting out, our club offers a welcoming space to learn, collaborate, and explore this exciting field.
+                </div>
             <div>
-                <h2>Meeting Information</h2> Meetings are held in     
-                    <pop-up title="IST-1028 Location">
-                        <a slot="button" class="about_click"> IST-1028: click to view</a>
-                        <a class="about_click" href="https://www.google.com/maps/dir//28.150775,-81.851303/@29.2157201,-82.7846403,8z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="color: var(--purple);"> Google Maps Link &#x1F517</a>
-                        <img src="/assets/location.jpg" alt="IST-1028" loading="lazy">
-                    </pop-up>
-                <br>
-                <br>
-                <b>
-                        <u>Meeting Dates:</u>
-                    </b>
-                <br> General Meetings: Mondays @ 5:30pm
-                <br> Defensive Meetings: Wednesdays @ 5:30pm
-                <br> Offensive Meetings: Fridays @ 5:30pm
+                content
             </div>
             <div class="footer">
+                <h2>Meeting Information</h2> Meetings are held in     
+                <pop-up title="IST-1028 Location">
+                    <a slot="button" class="about_click"> IST-1028: click to view</a>
+                    <a class="about_click" href="https://www.google.com/maps/dir//28.150775,-81.851303/@29.2157201,-82.7846403,8z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="color: var(--purple);"> Google Maps Link &#x1F517</a>
+                    <img src="/assets/location.jpg" alt="IST-1028" loading="lazy">
+                </pop-up>
+                <br>
+                <div></div>
                 <list-cards>
-                    <data src="/assets/meetings/Solaris-General-Team.png" name="General Team Meetings" time="Mondays @ 5:30pm" color="var(--purple)">
+                    <data src="/assets/meetings/Solaris-General-Team.webp" name="General Team Meetings" time="Mondays @ 5:30pm" color="var(--purple)">
                         Join our general meetings to hang out and connect with fellow students! 
                         We offer the latest club updates and hands-on cybersecurity workshops to level up your skills.  
                     </data>
-                    <data src="/assets/meetings/Solaris-Blue-Team.png" name="Blue Team Meetings" time="Wednesdays @ 5:30pm" color="var(--cyan)">
+                    <data src="/assets/meetings/Solaris-Blue-Team.webp" name="Blue Team Meetings" time="Wednesdays @ 5:30pm" color="var(--cyan)">
                         Level up your defensive skills through competitions. 
                         Learn about protecting against attacks, detecting malicious activity and responding to incidents.    </data>
-                    <data src="/assets/meetings/Solaris-Red-Team.png" name="Red Team Meetings" time="Fridays @ 5:30pm" color="var(--red)">
+                    <data src="/assets/meetings/Solaris-Red-Team.webp" name="Red Team Meetings" time="Fridays @ 5:30pm" color="var(--red)">
                         Learn the art of "ethical" hacking. 
                         Master reverse engineering, exploit development, and vulnerability scanning through CTF competitions and real systems.
                     </data>
-                    <data src="/assets/meetings/Solaris-Hardware-project.png" name="Hardware Project" time="To be Anounced" color="var(--orange)">
+                    <data src="/assets/meetings/Solaris-Hardware-project.webp" name="Hardware Project" time="To be Anounced" color="var(--orange)">
                         Hack a real Chinese security camera! 
                         Take part in firmware reverse engineering, credential harvesting, traffic decryption and discover vulnerabilities.
                     </data>
-                    <data src="/assets/meetings/Solaris-Website-Project.png" name="Website Project" time="To be Anounced" color="var(--neon-magenta)">
+                    <data src="/assets/meetings/Solaris-Website-Project.webp" name="Website Project" time="To be Anounced" color="var(--neon-magenta)">
                         Help contribute to our club’s website and backend using HTML/CSS/JS and python flask. 
                         We are beginner friendly, and open to any contributions.
                     </data>
@@ -131,10 +125,7 @@
         </div>
     </div>
 
-    <slide-show durationMS="3000">
-        <img alt="CCDC Regionals" src="/assets/pics/CCDC_Regionals_2026.jpg" loading="lazy">
-        <img alt="Sunshine CTF" src="/assets/pics/Sunshine_CTF_2026.jpg" loading="lazy">
-    </slide-show>
+    <div>
 
     <div class="stay_connected">
         <div class="fuchsia-texthover">
@@ -199,7 +190,14 @@
                 </div>
             </div>
         </div>
+
+        <slide-show durationMS="3000">
+            <img alt="CCDC Regionals" src="/assets/pics/CCDC_Regionals_2026.jpg" loading="lazy">
+            <img alt="Sunshine CTF" src="/assets/pics/Sunshine_CTF_2026.jpg" loading="lazy">
+        </slide-show>
     </div>
+
+    
 
 
     <!-- leaders div is dynamlly injected-->

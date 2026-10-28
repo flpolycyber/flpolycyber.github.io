@@ -2,8 +2,6 @@
 Global style sheet
 */
 
-
-
 /* From https://github.com/rewtnull/amigafonts */
 @font-face {
     font-family: "topazplus";
@@ -16,70 +14,67 @@ Global style sheet
     src: url("../fonts/featuremonogx.ttf") format("truetype");
 }
 
-
-
 /* https://www.w3schools.com/colors/colors_hsl.asp */
 :root {
+    --yellow: hsl(59, 100%, 50%);
+    --gold: hsl(45, 100%, 60%);
+
+    --cyan: hsl(190, 100%, 50%);
+    --blue: hsl(234, 47%, 66%);
+    --dark-blue: hsl(235, 32%, 43%);
+    --indigo: hsl(197, 100%, 44%);
+    --dark-indigo: hsl(274, 81%, 12%);
+    --blueviolet: hsl(271, 76%, 53%);
+
     --purple: hsl(240, 60%, 76%);
-    --border: hsl(240, 60%, 76%, 0.5);
-    --iconbg: hsl(264, 51%, 36%);
-    --glow-purple: 0 0 8px hsl(240, 60%, 76%, 0.8),
-        0 0 20px hsl(240, 60%, 76%, 0.8);
-    --bg-body: hsl(0, 0%, 0%);
-    --bg-sidebar: hsl(0, 0%, 0%);
+    --tran-purple: hsl(from var(--purple) h s l / 0.5);
+    --dark-purple: hsl(264, 54%, 35%);
+    --purple2: hsl(297, 41%, 46%);
+    --dark-purple2: hsl(296, 41%, 26%);
+
+    --light-green: hsl(140, 99%, 76%);
+    --green: hsl(136, 87%, 51%);
+    --dark-green: hsl(135, 81%, 29%);
+    --spring-green: hsl(150, 100%, 50%);
+    --aquamarine: hsl(160, 100%, 75%);
+
+    --orange: hsl(39, 100%, 50%);
+    --red: hsl(4, 90%, 58%);
+    --pink: hsl(345, 94%, 67%);
+    --dark-pink: hsl(345, 63%, 43%);
+    --pink2: hsl(326, 49%, 68%);
+    --dark-pink2: hsl(326, 36%, 40%);
+    --neon-magenta: hsl(320, 100%, 50%);
+    --fuchsia: hsl(300, 100%, 50%);
+
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(0, 0%, 88%);
+    --grey: hsl(0, 0%, 50%);
+    --black: hsl(0, 0%, 0%);
+
+    /* For clip-path: */
+    --corner-fold: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 30px),
+        calc(100% - 30px) 100%,
+        0 100%
+    );
+    --hex-cut: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+
     --sidebar-width: 300px;
     --button-size: 60px;
 
-    --glitch1: hsl(179, 100%, 50%);
-    --glitch2: hsl(59, 100%, 50%);
-    --glitch3: hsl(299, 100%, 50%);
-
     --max_width: 1200px;
+    --max_width2: 1800px;
     --small_button_size: 80px;
 }
 
 body {
-    background: var(--bg-body);
+    background: var(--black);
 
     /* disables horizontal scrolling  */
-    overflow-x: hidden; 
-}
-
-
-.container {
-    display: grid;
-    grid-template-areas:
-        "navbar navbar"
-        "left right"
-        "footer footer";
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    background-color: #50298a;
-    padding: 10px;
-}
-
-.container div {
-    background-color: white;
-    padding: 10px;
-    font-family: topazplus;
-}
-
-.container div.navbar {
-    background-color: #220638;
-    grid-area: navbar;
-}
-
-.container div.left {
-    grid-area: left;
-}
-
-.container div.right {
-    grid-area: right;
-}
-
-.container div.footer {
-    grid-area: footer;
-    text-align: center;
+    overflow-x: hidden;
 }
 
 /* Hover animation inspired by https://ianlunn.github.io/Hover/ */
@@ -95,14 +90,15 @@ body {
 }
 
 button:disabled {
-    background-color: #e0e0e0;
-    color: #a0a0a0;
+    background-color: var(--light-grey);
+    color: var(--grey);
     cursor: not-allowed;
     opacity: 0.6;
     pointer-events: none;
 }
 
-img, video {
+img,
+video {
     /* To make not highlightable */
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -118,39 +114,38 @@ img, video {
 /* Based on https://www.tiny.cloud/blog/css-glitch-effect/ */
 
 .glitch:hover {
-  text-shadow: 0.05em 0 0 var(--glitch1), -0.03em -0.04em 0 var(--glitch3),
-    0.025em 0.04em 0 var(--glitch2);
-  animation: glitch 725ms infinite;
+    text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+        0.025em 0.04em 0 var(--yellow);
+    animation: glitch 725ms infinite;
 }
 
-
 @keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 var(--glitch1), -0.03em -0.04em 0 var(--glitch3),
-      0.025em 0.04em 0 var(--glitch2);
-  }
-  15% {
-    text-shadow: 0.05em 0 0 var(--glitch1), -0.03em -0.04em 0 var(--glitch3),
-      0.025em 0.04em 0 var(--glitch2);
-  }
-  16% {
-    text-shadow: -0.05em -0.025em 0 var(--glitch1), 0.025em 0.035em 0 var(--glitch3),
-      -0.05em -0.05em 0 var(--glitch2);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 var(--glitch1), 0.025em 0.035em 0 var(--glitch3),
-      -0.05em -0.05em 0 var(--glitch2);
-  }
-  50% {
-    text-shadow: 0.05em 0.035em 0 var(--glitch1), 0.03em 0 0 var(--glitch3),
-      0 -0.04em 0 var(--glitch2);
-  }
-  99% {
-    text-shadow: 0.05em 0.035em 0 var(--glitch1), 0.03em 0 0 var(--glitch3),
-      0 -0.04em 0 var(--glitch2);
-  }
-  100% {
-    text-shadow: -0.05em 0 0 var(--glitch1), -0.025em -0.04em 0 var(--glitch3),
-      -0.04em -0.025em 0 var(--glitch2);
-  }
+    0% {
+        text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+            0.025em 0.04em 0 var(--yellow);
+    }
+    15% {
+        text-shadow: 0.05em 0 0 var(--cyan), -0.03em -0.04em 0 var(--fuchsia),
+            0.025em 0.04em 0 var(--yellow);
+    }
+    16% {
+        text-shadow: -0.05em -0.025em 0 var(--cyan),
+            0.025em 0.035em 0 var(--fuchsia), -0.05em -0.05em 0 var(--yellow);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--cyan),
+            0.025em 0.035em 0 var(--fuchsia), -0.05em -0.05em 0 var(--yellow);
+    }
+    50% {
+        text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
+            0 -0.04em 0 var(--yellow);
+    }
+    99% {
+        text-shadow: 0.05em 0.035em 0 var(--cyan), 0.03em 0 0 var(--fuchsia),
+            0 -0.04em 0 var(--yellow);
+    }
+    100% {
+        text-shadow: -0.05em 0 0 var(--cyan), -0.025em -0.04em 0 var(--fuchsia),
+            -0.04em -0.025em 0 var(--yellow);
+    }
 }

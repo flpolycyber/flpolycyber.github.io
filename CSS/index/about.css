@@ -1,0 +1,41 @@
+
+.about-container {
+    display: grid;
+    grid-template-areas:
+        "navbar navbar"
+        "left right"
+        "footer footer";
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    background: var(--dark-blue);
+    padding: 10px;
+    text-align: center;
+    max-width: var(--max_width2);
+    margin: auto;
+}
+
+.about-container div {
+    background: white;
+    padding: 10px;
+    font-family: topazplus;
+}
+
+.about-container div.navbar {
+    background: var(--dark-indigo);
+    color: white;
+    grid-area: navbar;
+}
+
+.about-container div.footer {
+    grid-area: footer;
+}
+
+.about_us_txt{
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.about_click{
+    text-decoration: underline; 
+    cursor: pointer;
+}

@@ -1,14 +1,13 @@
 /* https://www.w3schools.com/howto/howto_js_slideshow.asp */
 
-/* Slideshow container */
-.slideshow-container {
+.zlideimg-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
 }
 
 /* Next & previous buttons */
-#prev, #next {
+#zlideprev, #zlidenext {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -18,24 +17,30 @@
     font-weight: bold;
     font-size: 24px;
     transition: 0.6s ease;
+    -webkit-user-select: none;
     user-select: none;
+    color: var(--purple);
 }
 
 /* Position the "next button" to the right */
-#next {
+#zlidenext {
     right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+#zlideprev{
+    left: 0;
     border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-#prev:hover,
-#next:hover {
-    background-color: rgba(155, 155, 155, 0.8);
+#zlideprev:hover, #zlidenext:hover {
+    color: white;
+    background: hsl(from var(--purple) h s l / 0.8);
 }
 
 /* Number text (1/N etc) */
-.numbertext {
-    color: #f2f2f2;
+.zlidenumbertext {
+    color: var(--purple);
     font-size: 24px;
     padding: 8px 24px;
     position: absolute;
@@ -44,38 +49,45 @@
 }
 
 /* The dots/bullets/indicators */
-.dot {
+.zlidedot {
     cursor: pointer;
     height: 20px;
-    background-color: #bbb;
+    background: var(--light-grey);
+    color: black;
     display: inline-block;
     padding: 5px;
     border-radius: 4px;
-    transition: background-color 0.6s ease;
+    transition: background 0.6s ease;
     font-family: featuremono;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.zlidedot.active, .zlidedot:hover {
+  background: var(--grey);
 }
 
 /* Fading animation */
-.fade {
-    animation-name: fade;
+.zlidefade {
+    animation-name: zlidefade;
     animation-duration: 1.5s;
 }
 
-.slideimg {
-    width: 50%;
-    max-width: 400px;
+.zlideimg {
+    width: 100%;
+    height: 420px;
+    object-fit: contain;
 }
 
-.center{
+.zlidecenter{
     display: grid;
     place-items: center;
 }
 
-@keyframes fade {
+.zlidedots{
+    text-align: center;
+    padding: 20px;
+}
+
+@keyframes zlidefade {
     from {
         opacity: 0.4;
     }
@@ -86,7 +98,7 @@
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-    .prev, .next, .text {
+    .zlideprev, .zlidenext, .zlidetext {
         font-size: 11px;
     }
 }

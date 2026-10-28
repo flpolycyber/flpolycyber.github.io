@@ -1,0 +1,87 @@
+/* inspired by https://freefrontend.com/code/cyberpunk-glitch-upgrade-modal-2026-03-03/ */
+
+::backdrop { 
+    background: rgba(0,0,0,0.5); 
+}
+
+#popmy-dialog { 
+    min-width: 600px;
+    max-width: var(--max_width);
+    /* https://css-generators.com/custom-corners/ */
+
+    clip-path: var(--corner-fold);
+    
+    background: color-mix(in srgb, var(--blue), transparent 50%);
+    
+    font-family: featuremono;
+    color: var(--blue);
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    border: none;
+    padding: 15px;
+
+}
+
+#popmy-dialog::before {
+    content: "";
+    position: absolute;
+    top: 3px; bottom: 3px; left: 12px; right: 3px;
+    background: rgba(0,0,0,0.5);
+    clip-path: var(--corner-fold);
+    z-index: -1;
+}
+
+.poptitle{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    font-family: featuremono !important;
+    background: none !important;
+}
+
+.poptitle h1 {
+    margin: auto;
+}
+
+.poptitle header {
+    flex: 1;
+}
+
+#popclosebtn{
+    margin-left: auto;
+}
+
+.popline{
+    height: 5px;
+    border: none;
+    background-color: var(--blue);
+}
+
+#popclose-icon{
+    border: none;
+    width: 30px;
+    height: 30px;
+    margin-bottom: auto;
+}
+
+#popmain{
+    display: grid;
+    place-items: center;
+}
+
+.popimg-container {
+    background-color: var(--blue) !important;
+    display: inline-block;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.popimg-container img {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%);
+}

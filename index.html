@@ -11,12 +11,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/CSS/SPA/sidebar.css">
-    <link rel="stylesheet" href="/CSS/SPA/hamburger.css">
-    <link rel="stylesheet" href="/CSS/SPA/logo.css">
 
+    <link rel="stylesheet" href="/CSS/index/about.css">
     <link rel="stylesheet" href="/CSS/index/connected.css">
     <link rel="stylesheet" href="/CSS/index/leader.css">
-    <link rel="stylesheet" href="/CSS/index/matrix.css">
+    <link rel="stylesheet" href="/CSS/index/main_title.css">
 
     <link rel="stylesheet" href="/CSS/main.css" />
 
@@ -28,11 +27,16 @@
 
     <!-- web components -->
     <script type="module" src="/components/slideshow/slideshow.js"></script>
+    
+    <link rel="stylesheet" href="/components/popup/popup.css">
+    <script type="module" src="/components/popup/popup.js"></script>
 
+    <script type="module" src="/components/cards/cards.js"></script>
 </head>
 
 <body>
-    <!-- <div class="matrix">
+    <div class="mainpage">
+        <div class="matrix">
             <span class="matrix-num" style="left: 1%; animation-delay: 0.1s;">1</span>
             <span class="matrix-num" style="left: 2%; animation-delay: 3.2s;">10</span>
             <span class="matrix-num" style="left: 7%; animation-delay: 1.1s;">0</span>
@@ -58,40 +62,70 @@
             <span class="matrix-num" style="left: 92%; animation-delay: 1.3s;">01 0 1</span>
             <span class="matrix-num" style="left: 99%; animation-delay: 0.1s;">1</span>
             <span class="matrix-num" style="left: 98%; animation-delay: 3.1s;">111</span>
-        </div> -->
-    <div class="content">
-        <div class="pgtitle">
-            <h1>Florida Poly Cybersecurity Club</h1></div>
-        <div class="container">
+        </div>
+        <div class="maintitle">
+            <h1>Florida Poly Cybersecurity Club</h1>
+            <h3>A student-led community dedicated to <br> learning offensive and defensive cybersecurity.</h3>
+            <div class="title_container">
+                <a class="title_button" href="#about_us"> About Us </a>
+                <a class="title_button" href="/calendar.html"> Meeting Times </a>
+                <a class="title_button" href="#leaders"> Our Team </a>
+                <a class="title_button" href="/projects.html"> Projects </a>
+                <a class="title_button" href="/blue_team.html"> Defensive Team </a>
+                <a class="title_button" href="/CCDC.html"> CCDC Competitions </a>
+                <a class="title_button" href="/red_team.html"> Offensive Team </a>
+                <a class="title_button" href="/CIF.html"> CIF Competitions </a>
+            </div>
+        </div>
+    </div>
+    <div class="about-content">
+        <div class="about-container">
             <div class="navbar">
-                <h1></h1>
+                <h1>About Us</h1>
             </div>
-            <div class="left">
-                <h2>About Us</h2>
-            </div>
-            <div class="right">
-                <h2>Meeting Information</h2> Meetings are held in IST-1028
-                <br>
-                <br>
-                <b>
-                        <u>Meeting Dates:</u>
-                    </b>
-                <br> General Meetings: Mondays @ 5:30pm
-                <br> Defensive Meetings: Wednesdays @ 5:30pm
-                <br> Offensive Meetings: Fridays @ 5:30pm
+                <div class="about_us_txt">
+                    <h2>Who we are</h2>
+                    We're a group of FPU students passionate about all things cybersecurity, both offensive and defensive. 
+                    Whether you're a seasoned pro or just starting out, our club offers a welcoming space to learn, collaborate, and explore this exciting field.
+                </div>
+            <div>
+                content
             </div>
             <div class="footer">
-                <h3>feet</h3>
+                <h2>Meeting Information</h2> Meetings are held in     
+                <pop-up title="IST-1028 Location">
+                    <a slot="button" class="about_click"> IST-1028: click to view</a>
+                    <a class="about_click" href="https://www.google.com/maps/dir//28.150775,-81.851303/@29.2157201,-82.7846403,8z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="color: var(--purple);"> Google Maps Link &#x1F517</a>
+                    <img src="/assets/location.jpg" alt="IST-1028" loading="lazy">
+                </pop-up>
+                <br>
+                <div></div>
+                <list-cards>
+                    <data src="/assets/meetings/Solaris-General-Team.webp" name="General Team Meetings" time="Mondays @ 5:30pm" color="var(--purple)">
+                        Join our general meetings to hang out and connect with fellow students! 
+                        We offer the latest club updates and hands-on cybersecurity workshops to level up your skills.  
+                    </data>
+                    <data src="/assets/meetings/Solaris-Blue-Team.webp" name="Blue Team Meetings" time="Wednesdays @ 5:30pm" color="var(--cyan)">
+                        Level up your defensive skills through competitions. 
+                        Learn about protecting against attacks, detecting malicious activity and responding to incidents.    </data>
+                    <data src="/assets/meetings/Solaris-Red-Team.webp" name="Red Team Meetings" time="Fridays @ 5:30pm" color="var(--red)">
+                        Learn the art of "ethical" hacking. 
+                        Master reverse engineering, exploit development, and vulnerability scanning through CTF competitions and real systems.
+                    </data>
+                    <data src="/assets/meetings/Solaris-Hardware-project.webp" name="Hardware Project" time="To be Anounced" color="var(--orange)">
+                        Hack a real Chinese security camera! 
+                        Take part in firmware reverse engineering, credential harvesting, traffic decryption and discover vulnerabilities.
+                    </data>
+                    <data src="/assets/meetings/Solaris-Website-Project.webp" name="Website Project" time="To be Anounced" color="var(--neon-magenta)">
+                        Help contribute to our club’s website and backend using HTML/CSS/JS and python flask. 
+                        We are beginner friendly, and open to any contributions.
+                    </data>
+                </list-cards>
             </div>
         </div>
     </div>
 
-
-    <slide-show items='[
-        {"title": "img1", "img": "/assets/leader/router.png"},
-        {"title": "img2", "img": "/assets/leader/router.png"},
-        {"title": "img3", "img": "/assets/leader/router.png"}]'>
-    </slide-show>
+    <div>
 
     <div class="stay_connected">
         <div class="fuchsia-texthover">
@@ -104,17 +138,20 @@
                 </div>
                 <div class="fuchsia-texthover">
                     <label for="contact_name">
-                        <h3> Name </h3></label>
+                        <h3> Name </h3>
+                    </label>
                     <input class="connect_input" id="contact_name" type="text" placeholder="Name" title="Name" name="Name" autocomplete="name" required>
                 </div>
                 <div class="fuchsia-texthover">
                     <label for="contact_email">
-                        <h3> Email </h3></label>
+                        <h3> Email </h3>
+                    </label>
                     <input class="connect_input" id="contact_email" type="email" placeholder="youremail@cyber.com" title="Email" name="Email" autocomplete="email" required>
                 </div>
                 <div class="fuchsia-texthover">
                     <label for="contact_message">
-                        <h3> Message </h3></label>
+                        <h3> Message </h3>
+                    </label>
                 </div>
                 <textarea class="connect_input" id="contact_message" rows="4" cols="120" placeholder="Message..." title="Message" name="Message" required></textarea>
                 <button id="form_contact_button" type="submit" value="Send" class="retro_button connect_input" title="Send">Send</button>
@@ -127,33 +164,40 @@
                 <div class="social_media_container">
                     <div class="fuchsia-texthover">
                         <h3> Involve </h3>
-                        <a href="https://floridapoly.presence.io/organization/cybersecurity-club" target="_blank" rel="noopener noreferrer">
-                            <img class="app_icon hover_bounce involve_img" src="/assets/connected/involve_8bit.png" title="Involve">
+                        <a href="/how-to-join.html" target="_blank">
+                            <img class="app_icon hover_bounce involve_img" src="/assets/connected/involve_8bit.png" title="Involve" alt="Involve">
                         </a>
                     </div>
                     <div class="fuchsia-texthover">
                         <h3> Discord </h3>
 
-                        <a href="https://discord.gg/AkfMMtyXq4" target="_blank" rel="noopener noreferrer">
-                            <img class="app_icon hover_bounce discord_img" src="/assets/connected/discord_8bit.png" title="Discord">
+                        <a href="/how-to-join.html" target="_blank">
+                            <img class="app_icon hover_bounce discord_img" src="/assets/connected/discord_8bit.png" title="Discord" alt="Discord">
                         </a>
                     </div>
                     <div class="fuchsia-texthover">
                         <h3> Instagram </h3>
                         <a href="https://www.instagram.com/flpolycyberclub/" target="_blank" rel="noopener noreferrer">
-                            <img class="app_icon hover_bounce instagram_img" src="/assets/connected/instagram_8bit.png" title="Instagram">
+                            <img class="app_icon hover_bounce instagram_img" src="/assets/connected/instagram_8bit.png" title="Instagram" alt="Instagram">
                         </a>
                     </div>
                     <div class="fuchsia-texthover">
                         <h3> GitHub </h3>
                         <a href="https://github.com/flpolycyber" target="_blank" rel="noopener noreferrer">
-                            <img class="app_icon hover_bounce github_img" src="/assets/connected/github_8bit.png" title="GitHub">
+                            <img class="app_icon hover_bounce github_img" src="/assets/connected/github_8bit.png" title="GitHub" alt="Github">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <slide-show durationMS="3000">
+            <img alt="CCDC Regionals" src="/assets/pics/CCDC_Regionals_2026.jpg" loading="lazy">
+            <img alt="Sunshine CTF" src="/assets/pics/Sunshine_CTF_2026.jpg" loading="lazy">
+        </slide-show>
     </div>
+
+    
 
 
     <!-- leaders div is dynamlly injected-->
